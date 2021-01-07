@@ -1,0 +1,164 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DoSiteCore" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="952,1074" sap2010:WorkflowViewState.IdRef="DoSiteCore_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="476.666666666667,909.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="newItemSelectStr">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">1</Literal>
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'CatalogManager.exe Add'" sap:VirtualizedContainerService.HintSize="434.666666666667,817.333333333333" sap2010:WorkflowViewState.IdRef="WindowScope_4" InformativeScreenshot="05db6de365592950a73aeeb1a6b735ae" Selector="&lt;wnd app='catalogmanager.exe' ctrlname='WizardContainer' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="400.666666666667,671.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="newItemSelectStr =&quot;&lt;wnd ctrlname='_groupBox' /&gt;&lt;wnd ctrlname='VirtualCatalogRulesSelectForm' /&gt;&lt;wnd ctrlname='wizard' /&gt;&lt;wnd ctrlname='panelHost' /&gt;&lt;wnd ctrlname='listBoxCatalogs' /&gt;&lt;ctrl name='Edit Select a catalog' role='list' /&gt;&lt;ctrl name='A_JA_D2_D3' role='list item' /&gt;&quot;;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="358.666666666667,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+              <ui:InvokeCode.Arguments>
+                <OutArgument x:TypeArguments="x:String" x:Key="newItemSelectStr">
+                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="newItemSelectStr" />
+                </OutArgument>
+              </ui:InvokeCode.Arguments>
+            </ui:InvokeCode>
+            <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'WindowsForms10.LISTBOX....'" sap:VirtualizedContainerService.HintSize="358.666666666667,134" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="A_JA_D2_D3">
+              <ui:SelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="64">
+                  <x:String>A_CC_D1</x:String>
+                  <x:String>A_CC_D2_D3</x:String>
+                  <x:String>A_CC_LTD</x:String>
+                  <x:String>A_CC_LTT_LB</x:String>
+                  <x:String>A_CC_T1</x:String>
+                  <x:String>A_DTL_D1</x:String>
+                  <x:String>A_DTL_D2_D3</x:String>
+                  <x:String>A_DTL_LTD</x:String>
+                  <x:String>A_DTL_LTT_LB</x:String>
+                  <x:String>A_DTL_T1</x:String>
+                  <x:String>A_Giti_B1_B2_B3</x:String>
+                  <x:String>A_Giti_D1</x:String>
+                  <x:String>A_Giti_D2_D3</x:String>
+                  <x:String>A_Giti_LB</x:String>
+                  <x:String>A_Giti_LTT_LTD</x:String>
+                  <x:String>A_Giti_T1_T2</x:String>
+                  <x:String>A_GITI_T2</x:String>
+                  <x:String>A_HL_D1</x:String>
+                  <x:String>A_HL_D2_D3</x:String>
+                  <x:String>A_HL_LTD</x:String>
+                  <x:String>A_HL_LTT_LB</x:String>
+                  <x:String>A_HL_T1</x:String>
+                  <x:String>A_JA_D1</x:String>
+                  <x:String>A_JA_D2_D3</x:String>
+                  <x:String>A_JA_LTD</x:String>
+                  <x:String>A_JA_LTT_LB</x:String>
+                  <x:String>A_JA_T1</x:String>
+                  <x:String>A_LDJ_D1</x:String>
+                  <x:String>A_LDJ_D2_D3</x:String>
+                  <x:String>A_LDJ_LTD</x:String>
+                  <x:String>A_LDJ_LTT_LB</x:String>
+                  <x:String>A_LDJ_T1</x:String>
+                  <x:String>A_Primewell</x:String>
+                  <x:String>GITI Base Catalog</x:String>
+                  <x:String>PRIMEWELL_D1</x:String>
+                </scg:List>
+              </ui:SelectItem.Items>
+              <ui:SelectItem.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3c275441-2591-463d-869c-10e6313aa3a5" InformativeScreenshot="21f8a1086d4857998d797489cdde4298" Selector="&lt;wnd ctrlname='_groupBox' /&gt;&lt;wnd ctrlname='VirtualCatalogRulesSelectForm' /&gt;&lt;wnd ctrlname='wizard' /&gt;&lt;wnd ctrlname='panelHost' /&gt;&lt;wnd ctrlname='listBoxCatalogs' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SelectItem.Target>
+            </ui:SelectItem>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" sap:VirtualizedContainerService.HintSize="358.666666666667,68" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="114a20e8-32ff-4d78-96c9-7c45fedb8e27" Selector="[newItemSelectStr]">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="358.666666666667,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[newItemSelectStr]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+    </ui:WindowScope>
+  </Sequence>
+</Activity>
