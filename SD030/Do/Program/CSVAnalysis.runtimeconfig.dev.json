@@ -1,9 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Giti\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Giti\\.nuget\\packages",
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "C:\\Users\\azureuser\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\azureuser\\.nuget\\packages"
     ]
   }
 }

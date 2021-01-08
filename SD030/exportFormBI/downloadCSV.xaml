@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property Name="runDir" Type="InArgument(x:String)" />
     <x:Property Name="attachFullName" Type="OutArgument(x:String)" />
+    <x:Property Name="FileNameNoExt" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>496,4179.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>995.333333333333,4066</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>downloadCSV_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -55,7 +56,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="downloadCSV" sap:VirtualizedContainerService.HintSize="476,3959.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="downloadCSV" sap:VirtualizedContainerService.HintSize="476,3961.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="http://giti-biee/new" Name="BIUrl" />
       <Variable x:TypeArguments="x:String" Default="grand\songfuwei" Name="DomainUser" />
@@ -65,7 +66,6 @@
       <Variable x:TypeArguments="x:String" Default="panjiao" Name="LoginUser" />
       <Variable x:TypeArguments="x:String" Default="welcome1285" Name="LoginPwd" />
       <Variable x:TypeArguments="x:String" Name="saveFullName" />
-      <Variable x:TypeArguments="x:String" Name="FileNameNoExt" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -96,13 +96,13 @@
         <InArgument x:TypeArguments="x:String">[runDir+"\Do\SaveData\"+FileNameNoExt+"_result.csv"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="IE" ContinueOnError="True" DisplayName="打开浏览器" sap:VirtualizedContainerService.HintSize="434,51.3333333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[mainBrowser]" Url="[BIUrl]">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="IE" ContinueOnError="True" DisplayName="打开浏览器" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[mainBrowser]" Url="[BIUrl]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,83.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -119,7 +119,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:OpenBrowser>
-    <ui:LogMessage DisplayName="日志消息" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;查找是否输入Domain&quot;]" />
+    <ui:LogMessage DisplayName="日志消息" sap:VirtualizedContainerService.HintSize="434,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;查找是否输入Domain&quot;]" />
     <ui:OnUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="True" DisplayName="在元素出现时 'iexplore.exe Windows'" sap:VirtualizedContainerService.HintSize="434,1062" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False">
       <ui:OnUiElementAppear.Body>
         <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,886" sap2010:WorkflowViewState.IdRef="Sequence_3">

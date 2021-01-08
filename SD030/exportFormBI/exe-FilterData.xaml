@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>546,1029.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>995.333333333333,1310.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>exe_FilterData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -31,6 +31,8 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -53,13 +55,15 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="exe_FilterData" sap:VirtualizedContainerService.HintSize="526,889.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="exe_FilterData" sap:VirtualizedContainerService.HintSize="526,1246" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="appPath" />
       <Variable x:TypeArguments="x:Boolean" Name="IsFileExist" />
       <Variable x:TypeArguments="ui:Window" Name="appProgram" />
+      <Variable x:TypeArguments="x:Int32" Name="countDown" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -72,6 +76,14 @@
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="x:String">["&lt;wnd app='csvanalysis.exe' cls='ConsoleWindowClass' title='"+runDir+"Do\Program\CSVAnalysis.exe' /&gt;"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="分配" sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[countDown]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">3</InArgument>
       </Assign.Value>
     </Assign>
     <ui:OpenApplication Arguments="{x:Null}" TimeoutMS="{x:Null}" ApplicationWindow="[appProgram]" DisplayName="打开应用程序 'CSVAnalysis.exe '" FileName="[runDir+&quot;Do\Program\CSVAnalysis.exe&quot;]" sap:VirtualizedContainerService.HintSize="484,230" sap2010:WorkflowViewState.IdRef="OpenApplication_1" InformativeScreenshot="23e42d887f077a1567f75ec6451468dd" Selector="[appPath]" WorkingDirectory="[runDir+&quot;Do\Program\&quot;]">
@@ -91,8 +103,27 @@
       </ui:OpenApplication.Body>
     </ui:OpenApplication>
     <Delay DisplayName="延迟" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-    <DoWhile DisplayName="Do While 循环" sap:VirtualizedContainerService.HintSize="484,256" sap2010:WorkflowViewState.IdRef="DoWhile_1" Condition="[IsFileExist=False]">
-      <ui:PathExists DisplayName="路径存在" Exists="[IsFileExist]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[attachFullName]" PathType="File" />
+    <DoWhile DisplayName="Do While 循环" sap:VirtualizedContainerService.HintSize="484,511.333333333333" sap2010:WorkflowViewState.IdRef="DoWhile_1">
+      <DoWhile.Condition>
+        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="IsFileExist=False and countDown&gt;0" />
+      </DoWhile.Condition>
+      <Sequence DisplayName="序列" sap:VirtualizedContainerService.HintSize="376,345.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Delay DisplayName="延迟" Duration="00:00:02" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+        <ui:PathExists DisplayName="路径存在" Exists="[IsFileExist]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[attachFullName]" PathType="File" />
+        <Assign DisplayName="分配" sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[countDown]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">[countDown-1]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
     </DoWhile>
     <ui:CloseApplication DisplayName="关闭应用程序" sap:VirtualizedContainerService.HintSize="484,68" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
       <ui:CloseApplication.Target>
