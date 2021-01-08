@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CSVAnalysis</id>
+    <version>1.0.0</version>
+    <authors>CSVAnalysis</authors>
+    <owners>CSVAnalysis</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.Extensions.Configuration" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.Abstractions" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="5.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Project\UIPath\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcoreapp3.1\CSVAnalysis.runtimeconfig.json" target="lib\netcoreapp3.1\CSVAnalysis.runtimeconfig.json" />
+    <file src="C:\Project\UIPath\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcoreapp3.1\CSVAnalysis.dll" target="lib\netcoreapp3.1\CSVAnalysis.dll" />
+  </files>
+</package>
