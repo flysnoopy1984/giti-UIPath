@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Diagnostics;
 using System.ComponentModel;
+using RPA.Core;
 
 namespace CSVAnalysis
 {
@@ -20,23 +21,25 @@ namespace CSVAnalysis
         private DateTime _endDate;
         private List<SC030CSVEntity> _result;
         private FileInfo _todoExcel;
+        public static RPACore _RPACore = RPACore.getInstance();
+
         public SD030Task()
         {
-            _runRoot = Program._CurrentDirectory;
+            _runRoot = _RPACore.CurrentDirectory; //Program._CurrentDirectory;
 
             int y = DateTime.Now.Year;
             int  m = DateTime.Now.Month;
             int d = this.getLastDayOfMonth(DateTime.Now).Day;
             _endDate = DateTime.Parse(y +"-"+ m +"-"+ d);
-            int beforeMonth = Convert.ToInt32(Program._configuration["setting:beforeMonth"]);
+            int beforeMonth = Convert.ToInt32(_RPACore.Configuration["setting:beforeMonth"]);
             var tempDate = _endDate.AddMonths(-beforeMonth);
          
             _startDate = DateTime.Parse(tempDate.Year + "-" + tempDate.Month + "-" + 1);
 
-            var dir = Program._configuration["setting:excelDir"];
+            var dir = _RPACore.Configuration["setting:excelDir"];
             string parentDir = Path.GetFullPath("..");
             _excelDir = parentDir + "\\" + dir;
-            dir = Program._configuration["setting:historyDir"];
+            dir = _RPACore.Configuration["setting:historyDir"];
             _historyDir = parentDir + "\\" + dir;
 
         }

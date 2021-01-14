@@ -24,7 +24,6 @@ C:\Project\UIPath\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcoreapp3.1\
 C:\Project\UIPath\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.csprojAssemblyReference.cache
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.AssemblyInfoInputs.cache
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.AssemblyInfo.cs
-C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.csproj.CoreCompileInputs.cache
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.dll
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.pdb
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcoreapp3.1\CSVAnalysis.exe
@@ -46,4 +45,6 @@ C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcorea
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcoreapp3.1\System.Text.Json.dll
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.csproj.CopyComplete
-C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.genruntimeconfig.cache
+C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcoreapp3.1\RPA.Core.dll
+C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcoreapp3.1\RPA.Core.pdb
+C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.csprojAssemblyReference.cache

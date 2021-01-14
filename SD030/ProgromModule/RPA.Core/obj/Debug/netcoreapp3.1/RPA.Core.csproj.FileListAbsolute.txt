@@ -1,0 +1,8 @@
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Debug\netcoreapp3.1\RPA.Core.deps.json
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Debug\netcoreapp3.1\RPA.Core.dll
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\obj\Debug\netcoreapp3.1\RPA.Core.AssemblyInfoInputs.cache
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\obj\Debug\netcoreapp3.1\RPA.Core.AssemblyInfo.cs
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Debug\netcoreapp3.1\RPA.Core.pdb
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\obj\Debug\netcoreapp3.1\RPA.Core.dll
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\obj\Debug\netcoreapp3.1\RPA.Core.pdb
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\obj\Debug\netcoreapp3.1\RPA.Core.csprojAssemblyReference.cache

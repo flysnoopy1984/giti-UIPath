@@ -10,11 +10,14 @@
         "projectUniqueName": "C:\\Project\\UIPath\\SD030\\ProgromModule\\CSVAnalysis\\CSVAnalysis\\CSVAnalysis.csproj",
         "projectName": "CSVAnalysis",
         "projectPath": "C:\\Project\\UIPath\\SD030\\ProgromModule\\CSVAnalysis\\CSVAnalysis\\CSVAnalysis.csproj",
-        "packagesPath": "C:\\Users\\azureuser\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Giti\\.nuget\\packages\\",
         "outputPath": "C:\\Project\\UIPath\\SD030\\ProgromModule\\CSVAnalysis\\CSVAnalysis\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\azureuser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Giti\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +29,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Project\\UIPath\\SD030\\ProgromModule\\RPA.Core\\RPA.Core.csproj": {
+                "projectPath": "C:\\Project\\UIPath\\SD030\\ProgromModule\\RPA.Core\\RPA.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -69,18 +76,85 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Project\\UIPath\\SD030\\ProgromModule\\RPA.Core\\RPA.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Project\\UIPath\\SD030\\ProgromModule\\RPA.Core\\RPA.Core.csproj",
+        "projectName": "RPA.Core",
+        "projectPath": "C:\\Project\\UIPath\\SD030\\ProgromModule\\RPA.Core\\RPA.Core.csproj",
+        "packagesPath": "C:\\Users\\Giti\\.nuget\\packages\\",
+        "outputPath": "C:\\Project\\UIPath\\SD030\\ProgromModule\\RPA.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Giti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

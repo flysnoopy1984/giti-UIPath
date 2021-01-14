@@ -153,6 +153,22 @@
         "runtime": {
           "lib/netcoreapp3.0/System.Text.Json.dll": {}
         }
+      },
+      "RPA.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Configuration.Json": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection": "5.0.1"
+        },
+        "compile": {
+          "bin/placeholder/RPA.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RPA.Core.dll": {}
+        }
       }
     }
   },
@@ -474,6 +490,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "RPA.Core/1.0.0": {
+      "type": "project",
+      "path": "../../RPA.Core/RPA.Core.csproj",
+      "msbuildProject": "../../RPA.Core/RPA.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -482,11 +503,13 @@
       "Microsoft.Extensions.Configuration >= 5.0.0",
       "Microsoft.Extensions.Configuration.Abstractions >= 5.0.0",
       "Microsoft.Extensions.Configuration.Json >= 5.0.0",
-      "Microsoft.Extensions.DependencyInjection >= 5.0.1"
+      "Microsoft.Extensions.DependencyInjection >= 5.0.1",
+      "RPA.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\azureuser\\.nuget\\packages\\": {}
+    "C:\\Users\\Giti\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -494,11 +517,14 @@
       "projectUniqueName": "C:\\Project\\UIPath\\SD030\\ProgromModule\\CSVAnalysis\\CSVAnalysis\\CSVAnalysis.csproj",
       "projectName": "CSVAnalysis",
       "projectPath": "C:\\Project\\UIPath\\SD030\\ProgromModule\\CSVAnalysis\\CSVAnalysis\\CSVAnalysis.csproj",
-      "packagesPath": "C:\\Users\\azureuser\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Giti\\.nuget\\packages\\",
       "outputPath": "C:\\Project\\UIPath\\SD030\\ProgromModule\\CSVAnalysis\\CSVAnalysis\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\azureuser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Giti\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -510,7 +536,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Project\\UIPath\\SD030\\ProgromModule\\RPA.Core\\RPA.Core.csproj": {
+              "projectPath": "C:\\Project\\UIPath\\SD030\\ProgromModule\\RPA.Core\\RPA.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -553,18 +583,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.2, 3.1.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
