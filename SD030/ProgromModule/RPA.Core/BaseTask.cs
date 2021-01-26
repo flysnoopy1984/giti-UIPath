@@ -6,7 +6,7 @@ using System.IO;
 using System.Net.Mail;
 using System.Text;
 
-namespace CSVAnalysis
+namespace RPA.Core
 {
     public class BaseTask
     {

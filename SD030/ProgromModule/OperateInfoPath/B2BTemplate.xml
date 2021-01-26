@@ -1,0 +1,7 @@
+﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetAccountInfoResponse xmlns="http://tempuri.org/">
+      <GetAccountInfoResult>{0}</GetAccountInfoResult>
+    </GetAccountInfoResponse>
+  </soap:Body>
+</soap:Envelope>

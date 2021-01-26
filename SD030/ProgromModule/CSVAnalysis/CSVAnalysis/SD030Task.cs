@@ -68,6 +68,8 @@ namespace CSVAnalysis
 
                 var historyFileFullName = _historyDir + _todoExcel.Name;
 
+                Console.WriteLine("todoExclePath:" + _todoExcel.FullName);
+                Console.WriteLine("historyFileFullName:" + historyFileFullName);
                 File.Move(_todoExcel.FullName, historyFileFullName, true);
             }
             else
