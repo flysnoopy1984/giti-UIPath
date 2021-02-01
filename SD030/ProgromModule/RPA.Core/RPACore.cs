@@ -35,7 +35,7 @@ namespace RPA.Core
         {
            
             _CurrentDirectory = Path.GetDirectoryName(type.Assembly.Location);
-
+            Console.WriteLine("CurrentDirectory:" + _CurrentDirectory);
             _configuration = _ConfigurationBuilder.SetBasePath(_CurrentDirectory)
                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                   .Build();

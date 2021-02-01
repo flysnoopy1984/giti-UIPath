@@ -13,7 +13,8 @@ namespace OperateInfoPath
             OperateInfoPathTask task = new OperateInfoPathTask();
             task.run();
             Console.WriteLine("Done");
-            Console.Read();
+            if (Convert.ToBoolean(_RPACore.Configuration["setting:showEnding"]))
+                Console.ReadLine();
         }
 
 
