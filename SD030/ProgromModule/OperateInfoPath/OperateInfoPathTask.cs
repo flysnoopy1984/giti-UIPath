@@ -38,7 +38,8 @@ namespace OperateInfoPath
             ConvertInfoPathToTarget();
 
             //转换Json到需要上传到B2b格式的xml,保存
-            SaveToXmlFile();
+            if (Convert.ToBoolean(_RPACore.Configuration["setting:createFXml"]))
+                SaveToXmlFile();
 
             SaveToCRMExcel();
 
@@ -127,15 +128,12 @@ namespace OperateInfoPath
                     obj.InitPCInfo(info, ccEntity);
                     obj.applyBrand = getNodeInnerText("//my:授权信息/my:申请乘用授权/my:乘用授权/my:乘用授权及目标/my:乘-品牌");
                 }
-
                 else
                 {
                     obj.InitTbInfo(info, ccEntity);
                     obj.applyBrand = getNodeInnerText("//my:授权信息/my:申请商用授权/my:商用授权/my:商用授权及目标/my:商-品牌");
                 }
                    
-
-                // obj.Status = "success";
                 obj.Status = "0";
                 obj.Createdon = DateTime.Now.ToString("yyyy/MM/dd");
                 obj.K2District = getNodeInnerText("//my:发运组织");
@@ -152,7 +150,7 @@ namespace OperateInfoPath
                 var IsAllXian = getNodeInnerText($"{pathSQ }/my:全部or部分区县") == "部分"?false:true;
 
                 if (IsAllXian) obj.crmXian = "所有县";
-                obj.crmXian = this.getXianList();
+                else obj.crmXian = this.getXianList();
 
                 if (obj.Ifpc)
                 {
@@ -379,7 +377,7 @@ namespace OperateInfoPath
         public void SaveToCRMExcel()
         {
             var dtName = DateTime.Now.ToString("yyyyMMddhhmm");
-            string outputFileName = _RPACore.Configuration["setting:infoPathOutDir"] + $"\\CRM_{dtName}.xls";
+            string outputFileName = _RPACore.Configuration["setting:infoPathOutDir"] + $"\\CRM_{dtName}.xlsx";
            
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             using (ExcelPackage package = new ExcelPackage(new FileInfo(outputFileName))) 
@@ -419,8 +417,8 @@ namespace OperateInfoPath
                     //    sheet4row++;
                     }
                 }
-                genSheecClientType();
 
+                genSheecClientType();
 
                 package.Save();
             }
