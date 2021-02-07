@@ -139,7 +139,7 @@ namespace OperateInfoPath
                 obj.K2District = getNodeInnerText("//my:发运组织");
 
                 #region  CRM
-                obj.crmId = Guid.NewGuid().ToString();
+                obj.crmId = Guid.NewGuid().ToString()+"_"+obj.AccountNum;
                 string pathSQ = "//my:合同信息/my:合同授权/my:授权区域";
                 obj.crmBrand = getNodeInnerText($"{pathSQ }/ my:授权品牌");
                 obj.crmKind = getNodeInnerText("//my:乘用or商用");
@@ -161,7 +161,7 @@ namespace OperateInfoPath
                     obj.crmSCXFEN = this.getMarketList(obj);
                     obj.crmSeries = "全系列";
                     obj.crmLinShouAddr = "(空白)";
-                
+                    
                     var hasKeYun = this.getNodeInnerText("//my:合同信息/my:目标-商用/my:商用目标/my:商用车胎目标/my:客运市场");
                     obj.hasKeYun = (!string.IsNullOrEmpty(hasKeYun) && hasKeYun == "客运");
                     if (obj.hasKeYun)
@@ -170,13 +170,12 @@ namespace OperateInfoPath
                         obj.KeYunXiFenList.Add(xifen1);
                         var xifen2 = this.getNodeInnerText("//my:客运授权/my:清单及考察期/my:客运细分2");
                         obj.KeYunXiFenList.Add(xifen2);
+
                         //   var hasKeYun = this.getNodeInnerText("//my:合同信息/my:目标-商用/my:商用目标/my:商用车胎目标/my:客运市场");
                     }
                     getTBSheet2(obj);
-
                 }   
                 #endregion
-
 
             }
             catch (Exception ex)
@@ -625,7 +624,6 @@ namespace OperateInfoPath
             string emptyValue = "（空白）";
             foreach (var crmS2Data in entity.crmSheet2PCList)
             {
-
                 sheet.Cells[row, 1].Value = entity.crmId;
                 sheet.Cells[row, 2].Value = entity.crmKind;
                 sheet.Cells[row, 3].Value = crmS2Data.Brand;
