@@ -16,7 +16,5 @@ namespace OperateInfoPath
             if (Convert.ToBoolean(_RPACore.Configuration["setting:showEnding"]))
                 Console.ReadLine();
         }
-
-
     }
 }

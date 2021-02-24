@@ -29,7 +29,8 @@ namespace RPA.Core
         }
         private RPACore()
         {
-          
+            FileInfo fi = new FileInfo(@"C:\Project\UIPath\ImportUserToWeb_Inner\Do\HistoryFiles\Inner\B2B客户新建账号--07 03 _1.xlsx");
+            string ee = fi.Extension;
         }
         public  void InitSystem(Type type) 
         {
@@ -39,6 +40,7 @@ namespace RPA.Core
             _configuration = _ConfigurationBuilder.SetBasePath(_CurrentDirectory)
                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                   .Build();
+          
         }
     }
 }

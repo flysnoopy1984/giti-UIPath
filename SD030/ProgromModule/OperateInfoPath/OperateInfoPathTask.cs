@@ -41,7 +41,7 @@ namespace OperateInfoPath
             if (Convert.ToBoolean(_RPACore.Configuration["setting:createFXml"]))
                 SaveToXmlFile();
 
-            SaveToCRMExcel();
+           SaveToCRMExcel();
 
             TempJsonExcel();
         }
@@ -140,17 +140,18 @@ namespace OperateInfoPath
 
                 #region  CRM
                 obj.crmId = Guid.NewGuid().ToString()+"_"+obj.AccountNum;
-                string pathSQ = "//my:合同信息/my:合同授权/my:授权区域";
-                obj.crmBrand = getNodeInnerText($"{pathSQ }/ my:授权品牌");
-                obj.crmKind = getNodeInnerText("//my:乘用or商用");
-                obj.crmShen = getNodeInnerText($"{pathSQ }/my:省份");
-                obj.crmVMode = getNodeInnerText($"{pathSQ }/my:经营方式");
-                if(obj.crmJYFangShi == 1) obj.crmLinShouAddr = getNodeInnerText($"{pathSQ }/my:零售地址");
-                    obj.crmDI = getNodeInnerText($"{pathSQ }/my:地级市");
-                var IsAllXian = getNodeInnerText($"{pathSQ }/my:全部or部分区县") == "部分"?false:true;
+                this.getAuthListData(obj);
+                //string pathSQ = "//my:合同信息/my:合同授权/my:授权区域";
+                //obj.crmBrand = getNodeInnerText($"{pathSQ }/ my:授权品牌");
+                //obj.crmKind = getNodeInnerText("//my:乘用or商用");
+                //obj.crmShen = getNodeInnerText($"{pathSQ }/my:省份");
+                //obj.crmVMode = getNodeInnerText($"{pathSQ }/my:经营方式");
+                //if(obj.crmJYFangShi == 1) obj.crmLinShouAddr = getNodeInnerText($"{pathSQ }/my:零售地址");
+                //    obj.crmDI = getNodeInnerText($"{pathSQ }/my:地级市");
+                //var IsAllXian = getNodeInnerText($"{pathSQ }/my:全部or部分区县") == "部分"?false:true;
 
-                if (IsAllXian) obj.crmXian = "所有县";
-                else obj.crmXian = this.getXianList();
+                //if (IsAllXian) obj.crmXian = "所有县";
+                //else obj.crmXian = this.getXianList();
 
                 if (obj.Ifpc)
                 {
@@ -158,18 +159,19 @@ namespace OperateInfoPath
                 }
                 else
                 {
-                    obj.crmSCXFEN = this.getMarketList(obj);
-                    obj.crmSeries = "全系列";
-                    obj.crmLinShouAddr = "(空白)";
-                    
+                    //obj.crmSCXFEN = this.getMarketList(obj);
+                    //obj.crmSeries = "全系列";
+                    //obj.crmLinShouAddr = "(空白)";
+
                     var hasKeYun = this.getNodeInnerText("//my:合同信息/my:目标-商用/my:商用目标/my:商用车胎目标/my:客运市场");
                     obj.hasKeYun = (!string.IsNullOrEmpty(hasKeYun) && hasKeYun == "客运");
                     if (obj.hasKeYun)
                     {
                         var xifen1 = this.getNodeInnerText("//my:客运授权/my:清单及考察期/my:客运细分1");
-                        obj.KeYunXiFenList.Add(xifen1);
+                        if(!string.IsNullOrEmpty(xifen1)) obj.KeYunXiFenList.Add(xifen1);
+
                         var xifen2 = this.getNodeInnerText("//my:客运授权/my:清单及考察期/my:客运细分2");
-                        obj.KeYunXiFenList.Add(xifen2);
+                        if (!string.IsNullOrEmpty(xifen2))  obj.KeYunXiFenList.Add(xifen2);
 
                         //   var hasKeYun = this.getNodeInnerText("//my:合同信息/my:目标-商用/my:商用目标/my:商用车胎目标/my:客运市场");
                     }
@@ -184,6 +186,42 @@ namespace OperateInfoPath
                 Console.WriteLine(ex.Message);
             }
             return obj;
+        }
+
+        //合同授权信息
+        private void getAuthListData(B2BEntity obj)
+        {
+            string pathSQ = "//my:合同信息/my:合同授权/my:授权区域";
+            var authNodeList = _doc.SelectNodes(pathSQ, _nsmgr);
+           for(int i = 0; i < authNodeList.Count; i++)
+            {
+                var authNode = authNodeList[i];
+             //   var bd = this.getNodeValue(authNode.SelectSingleNode("//my:授权品牌",_nsmgr));
+                AuthEntity authEntity = new AuthEntity()
+                {
+                   Brand = this.getNodeValue(authNode.SelectSingleNode("my:授权品牌", _nsmgr)),
+                   Shen = this.getNodeValue(authNode.SelectSingleNode("my:省份", _nsmgr)),
+                   VMode = this.getNodeValue(authNode.SelectSingleNode("my:经营方式", _nsmgr)),
+                   DI = this.getNodeValue(authNode.SelectSingleNode("my:地级市", _nsmgr)),
+                };
+                if (authEntity.VMModeType == 1)
+                    authEntity.LinShouAddr = this.getNodeValue(authNode.SelectSingleNode("my:零售地址", _nsmgr));
+                
+                authEntity.Kind = getNodeInnerText("my:乘用or商用");
+
+                var IsAllXian = authNode.SelectSingleNode("my:全部or部分区县", _nsmgr).InnerText == "部分" ? false : true;
+
+                if (IsAllXian) 
+                    authEntity.Xian = "所有县";
+                else 
+                    authEntity.Xian = this.getXianList(authNode);
+
+                authEntity.XFSCStr = this.getMarketList(authNode, obj);
+
+                obj.AuthList.Add(authEntity);
+            }
+
+
         }
 
         /// <summary>
@@ -255,22 +293,23 @@ namespace OperateInfoPath
             sheetTB2.S_T4 = this.getNodeInnerText(rootPath + "/my:商用-Q4-量");
             sheetTB2.S_Y = this.getNodeInnerText(rootPath + "/my:商用-全年-额");
             sheetTB2.S_T = this.getNodeInnerText(rootPath + "/my:商用-全年-量");
-            sheetTB2.SCXIFEN = this.getMarketList();
+            //  sheetTB2.SCXIFEN
+            sheetTB2.SCXIFEN = b2BEntity.XFSC_HuoYunStr;
             b2BEntity.crmSheet2TBList.Add(sheetTB2);
 
             var hasKeYun = this.getNodeInnerText(rootPath + "/my:客运市场");
             if(!string.IsNullOrEmpty(hasKeYun) && hasKeYun == "客运")
             {
                 sheetTB2 = new sheet2(b2BEntity);
-                sheetTB2.Brand = this.getNodeInnerText(rootPath + "/my:商用-品牌");
+                sheetTB2.Brand = "佳通";// this.getNodeInnerText(rootPath + "/my:商用-品牌");
                 sheetTB2.S_Y1 = this.getNodeInnerText(rootPath + "/my:客运-Q1-额");
                 sheetTB2.S_T1 = this.getNodeInnerText(rootPath + "/my:客运-Q1-量");
-                sheetTB2.S_Y2 = this.getNodeInnerText(rootPath + "/my:客运-Q1-额");
-                sheetTB2.S_T2 = this.getNodeInnerText(rootPath + "/my:客运-Q1-量");
-                sheetTB2.S_Y3 = this.getNodeInnerText(rootPath + "/my:客运-Q1-额");
-                sheetTB2.S_T3 = this.getNodeInnerText(rootPath + "/my:客运-Q1-量");
-                sheetTB2.S_Y4 = this.getNodeInnerText(rootPath + "/my:客运-Q1-额");
-                sheetTB2.S_T4 = this.getNodeInnerText(rootPath + "/my:客运-Q1-量");
+                sheetTB2.S_Y2 = this.getNodeInnerText(rootPath + "/my:客运-Q2-额");
+                sheetTB2.S_T2 = this.getNodeInnerText(rootPath + "/my:客运-Q2-量");
+                sheetTB2.S_Y3 = this.getNodeInnerText(rootPath + "/my:客运-Q3-额");
+                sheetTB2.S_T3 = this.getNodeInnerText(rootPath + "/my:客运-Q3-量");
+                sheetTB2.S_Y4 = this.getNodeInnerText(rootPath + "/my:客运-Q4-额");
+                sheetTB2.S_T4 = this.getNodeInnerText(rootPath + "/my:客运-Q4-量");
                 sheetTB2.S_Y = this.getNodeInnerText(rootPath + "/my:客运-全年-额");
                 sheetTB2.S_T = this.getNodeInnerText(rootPath + "/my:客运-全年-量");
                 sheetTB2.SCXIFEN = this.getKeYunXiFen_TBSheet2();
@@ -281,11 +320,12 @@ namespace OperateInfoPath
 
         
         }
-        //部分区县List
-        private string getXianList()
+        
+        //CRM 使用：部分区县List
+        private string getXianList(XmlNode rootNode)
         {
             string resultList = "";
-           var nodes = _doc.SelectNodes("//my:合同信息/my:合同授权/my:授权区域/my:县级/my:区县", _nsmgr);
+           var nodes = rootNode.SelectNodes("//my:县级/my:区县", _nsmgr);
            for(int i = 0; i < nodes.Count; i++)
             {
                 var node = nodes[i];
@@ -300,23 +340,36 @@ namespace OperateInfoPath
             return resultList;
         }
 
-        private string getMarketList(B2BEntity b2BEntity = null)
+        //细分市场
+        private string getMarketList(XmlNode rootNode, B2BEntity b2BEntity)
         {
             string resultList = "";
-            var nodes = _doc.SelectNodes("//my:合同信息/my:合同授权/my:授权区域/my:全钢细分市场/child::node()", _nsmgr);
-            
+            //  var nodes = _doc.SelectNodes("//my:合同信息/my:合同授权/my:授权区域/my:全钢细分市场/child::node()", _nsmgr);
+            var nodes = rootNode.SelectNodes("my:全钢细分市场/child::node()", _nsmgr);
+
             for (int i = 0; i < nodes.Count; i++)
             {
                 var node = nodes[i];
                 if (node != null && !string.IsNullOrEmpty(node.InnerText))
                 {
                     resultList += node.InnerText + ",";
-                    if(b2BEntity!=null)
+                    var findResult = b2BEntity.XFSCList.Find(a => a.Contains(node.InnerText));
+                    if (findResult == null)
+                    {
                         b2BEntity.XFSCList.Add(node.InnerText);
+                    }
+                   // if (b2BEntity != null)
+                   // {
+                   ////     b2BEntity.XFSCList.Find(a=>a.Contains(a.))
+                   //     b2BEntity.XFSCList.Add(node.InnerText);
+                   // }
+                        
 
                 }
             }
-            resultList = resultList.Remove(resultList.Length - 1);
+            if(resultList.Length>0)
+                resultList = resultList.Remove(resultList.Length - 1);
+         
             return resultList;
         }
         
@@ -328,14 +381,19 @@ namespace OperateInfoPath
             string resultList = "";
             var nodes = _doc.SelectSingleNode("//my:客运授权/my:客运细分显示", _nsmgr);
             resultList = nodes.InnerText;
-          
+
             return resultList;
         }       
+
+        public string getNodeValue(XmlNode node)
+        {
+            if (node != null) return node.InnerText;
+            else return "";
+        }
         public string getNodeInnerText(string xpath)
         {
             var node = _doc.SelectSingleNode(xpath, _nsmgr);
-            if (node != null) return node.InnerText;
-            else return "";
+            return getNodeValue(node);
         }
          
         public void SaveToXmlFile()
@@ -403,15 +461,15 @@ namespace OperateInfoPath
                 {
                     if (entity.Ifpc)
                     {
-                        genSheetPC1(entity, _SheetPC1, sheet1row);
-                        sheet1row++;
+                        genSheetPC1(entity, _SheetPC1, ref sheet1row);
+                     //   sheet1row++;
                         genSheetPC2(entity, _SheetPC2, ref sheet2row);
-                   //     sheet2row++;
+                   //    sheet2row++;
                     }
                     else
                     {
-                        genSheetTB1(entity, _SheetTB1, sheet3row);
-                        sheet3row++;
+                        genSheetTB1(entity, _SheetTB1, ref sheet3row);
+                     //   sheet3row++;
                         genSheetTB2(entity, _SheetTB2, ref sheet4row);
                     //    sheet4row++;
                     }
@@ -538,6 +596,7 @@ namespace OperateInfoPath
                     {
                         foreach(string huoyunXifen in rd.XFSCList)
                         {
+
                             QGTSheet.Cells[row, col++].Value = rd.AccountNum;
                             QGTSheet.Cells[row, col++].Value = rd.applyBrand;
                             QGTSheet.Cells[row, col++].Value = huoyunXifen;
@@ -572,6 +631,7 @@ namespace OperateInfoPath
                     package.Save();
             }
         }
+       
         private void genSheetPC1_header(ExcelWorksheet sheet)
         {
             sheet.Cells[1, 1].Value = "ID";
@@ -587,18 +647,32 @@ namespace OperateInfoPath
          
         }
         
-        private void genSheetPC1(B2BEntity entity,ExcelWorksheet sheet,int row)
+        //乘用1
+        private void genSheetPC1(B2BEntity entity,ExcelWorksheet sheet,ref int row)
         {
-            sheet.Cells[row, 1].Value = entity.crmId;
-            sheet.Cells[row, 2].Value = entity.AccountNum;
-            sheet.Cells[row, 3].Value = entity.crmBrand;
-            sheet.Cells[row, 4].Value = entity.crmKind;
-            sheet.Cells[row, 5].Value = entity.crmShen;
-            sheet.Cells[row, 6].Value = entity.crmVMode;
-            sheet.Cells[row, 7].Value = entity.crmLinShouAddr;
-            sheet.Cells[row, 8].Value = entity.crmDI;
-            sheet.Cells[row, 9].Value = entity.crmXian;
-            sheet.Cells[row, 10].Value = entity.Createdon;
+            foreach (var auth in entity.AuthList)
+            {
+                sheet.Cells[row, 1].Value = entity.crmId;
+                sheet.Cells[row, 2].Value = entity.AccountNum;
+                sheet.Cells[row, 3].Value = auth.Brand;
+                sheet.Cells[row, 4].Value = auth.Kind;
+                sheet.Cells[row, 5].Value = auth.Shen;
+                sheet.Cells[row, 6].Value = auth.VMode;
+                sheet.Cells[row, 7].Value = auth.LinShouAddr;
+                sheet.Cells[row, 8].Value = auth.DI;
+                sheet.Cells[row, 9].Value = auth.Xian;
+                sheet.Cells[row, 10].Value = entity.Createdon;
+            }
+            //    sheet.Cells[row, 1].Value = entity.crmId;
+            //sheet.Cells[row, 2].Value = entity.AccountNum;
+            //sheet.Cells[row, 3].Value = entity.crmBrand;
+            //sheet.Cells[row, 4].Value = entity.crmKind;
+            //sheet.Cells[row, 5].Value = entity.crmShen;
+            //sheet.Cells[row, 6].Value = entity.crmVMode;
+            //sheet.Cells[row, 7].Value = entity.crmLinShouAddr;
+            //sheet.Cells[row, 8].Value = entity.crmDI;
+            //sheet.Cells[row, 9].Value = entity.crmXian;
+            //sheet.Cells[row, 10].Value = entity.Createdon;
         }
            
         private void genSheetPC2_header(ExcelWorksheet sheet)
@@ -617,7 +691,8 @@ namespace OperateInfoPath
             sheet.Cells[1, 12].Value = "S_Y";
             sheet.Cells[1, 13].Value = "S_T";
         }
-
+        
+        //乘用2
         private void genSheetPC2(B2BEntity entity, ExcelWorksheet sheet,ref int row)
         {
 
@@ -687,20 +762,36 @@ namespace OperateInfoPath
 
         }
 
-        private void genSheetTB1(B2BEntity entity, ExcelWorksheet sheet, int row)
+        //商用1
+        private void genSheetTB1(B2BEntity entity, ExcelWorksheet sheet, ref int row)
         {
-            sheet.Cells[row, 1].Value = entity.crmId;
-            sheet.Cells[row, 2].Value = entity.AccountNum;
-            sheet.Cells[row, 3].Value = entity.crmKind;
-            sheet.Cells[row, 4].Value = entity.crmBrand;
-            sheet.Cells[row, 5].Value = entity.crmSCXFEN;
-            sheet.Cells[row, 6].Value = entity.crmSeries;
-            sheet.Cells[row, 7].Value = entity.crmShen;
-            sheet.Cells[row, 8].Value = entity.crmVMode;
-            sheet.Cells[row, 9].Value = entity.crmLinShouAddr;
-            sheet.Cells[row, 10].Value = entity.crmDI;
-            sheet.Cells[row, 11].Value = entity.crmXian;
-            sheet.Cells[row, 12].Value = entity.Createdon;
+            foreach(var auth in entity.AuthList)
+            {
+                sheet.Cells[row, 1].Value = entity.crmId;
+                sheet.Cells[row, 2].Value = entity.AccountNum;
+                sheet.Cells[row, 3].Value = auth.Kind;
+                sheet.Cells[row, 4].Value = auth.Brand;
+                sheet.Cells[row, 5].Value = auth.XFSCStr;
+                //   sheet.Cells[row, 5].Value = auth.SCXFEN;
+                sheet.Cells[row, 6].Value = auth.Series;
+                sheet.Cells[row, 7].Value = auth.Shen;
+                sheet.Cells[row, 8].Value = auth.VMode;
+                sheet.Cells[row, 9].Value = auth.LinShouAddr;
+                sheet.Cells[row, 10].Value = auth.DI;
+                sheet.Cells[row, 11].Value = auth.Xian;
+                sheet.Cells[row, 12].Value = entity.Createdon;
+                row++;
+            }
+        //    sheet.Cells[row, 3].Value = entity.crmKind;
+        //    sheet.Cells[row, 4].Value = entity.crmBrand;
+        ////    sheet.Cells[row, 5].Value = entity.crmSCXFEN;
+        //    sheet.Cells[row, 6].Value = entity.crmSeries;
+        //    sheet.Cells[row, 7].Value = entity.crmShen;
+        //    sheet.Cells[row, 8].Value = entity.crmVMode;
+        //    sheet.Cells[row, 9].Value = entity.crmLinShouAddr;
+        //    sheet.Cells[row, 10].Value = entity.crmDI;
+        //    sheet.Cells[row, 11].Value = entity.crmXian;
+
         }
         
         private void genSheetTB2_header(ExcelWorksheet sheet)
@@ -722,6 +813,7 @@ namespace OperateInfoPath
 
         }
 
+        //商用2
         private void genSheetTB2(B2BEntity entity, ExcelWorksheet sheet, ref int row)
         {
             string emptyValue = "（空白）";
@@ -799,6 +891,5 @@ namespace OperateInfoPath
                 row++;
             }
         }
-
     }
 }

@@ -70,6 +70,37 @@ namespace OperateInfoPath
        
 
     }
+   
+    public class AuthEntity
+    {
+        public string Series { get; set; } = "全系列";
+
+        public string LinShouAddr { get; set; } = "(空白)";
+        public string Kind { get; set; }
+        public string Brand { get; set; }
+        public string Shen { get; set; }
+
+        public int VMModeType { get; set; }
+
+        private string _VMode;
+        public string VMode {
+            get { return _VMode; }
+            set
+            {
+                _VMode = value;
+                if (value == "零售")
+                    VMModeType = 1;
+                else
+                    VMModeType = 0;
+            }
+        }
+        public string DI { get; set; }
+
+        public string Xian { get; set; }
+
+        public string XFSCStr { get; set; }
+
+    }
     public class B2BEntity
     {
         private List<AddressEntity> _AddressList;
@@ -161,6 +192,10 @@ namespace OperateInfoPath
         /* orig xml E*/
 
         #region CRM Excel
+
+        [JsonIgnore]
+        public List<AuthEntity> AuthList { get; set; } = new List<AuthEntity>();
+
         [JsonIgnore]
         public string crmBrand { get; set; }
 
@@ -215,12 +250,29 @@ namespace OperateInfoPath
         [JsonIgnore]
         public List<sheet2> crmSheet2PCList { get; set; }
 
-        [JsonIgnore]
-        public string crmSCXFEN { get; set; }
+        //[JsonIgnore]
+        //public string crmSCXFEN { get; set; }
+
+     
 
         //货运细分市场
         [JsonIgnore]
         public List<string> XFSCList { get; set; } = new List<string>();
+        //商用2 -货运细分
+        public string XFSC_HuoYunStr
+        {
+            get
+            {
+                string result = "";
+                foreach(var xf in XFSCList)
+                {
+                    result += xf + ",";
+                }
+                if (result.Length > 0)
+                    result = result.Remove(result.Length-1);
+                return result;
+            }
+        }
 
         //客运细分市场
         public List<string> KeYunXiFenList { get; set; } = new List<string>();
