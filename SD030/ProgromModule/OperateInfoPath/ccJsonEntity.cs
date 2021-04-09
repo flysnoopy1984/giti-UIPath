@@ -7,6 +7,22 @@ namespace OperateInfoPath
     public class ccJsonList
     {
         public List<ccJsonEntity> List { get; set; }
+
+        public List<ccPWEntity> PWList { get; set; } = new List<ccPWEntity>();
+
+
+    }
+
+   
+
+    public class ccPWEntity
+    {
+        public string PWRegion { get; set; }
+        public string PWICSContact { get; set; }
+        public string PWDistrict { get; set; }
+
+        public string PWICSEmail { get; set; }
+
     }
     public class ccJsonEntity
     {

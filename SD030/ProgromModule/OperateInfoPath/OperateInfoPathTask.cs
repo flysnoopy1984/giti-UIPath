@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using OfficeOpenXml;
+using OperateInfoPath.CRMModels;
 using RPA.Core;
 using System;
 using System.Collections.Generic;
@@ -19,12 +20,23 @@ namespace OperateInfoPath
         public static RPACore _RPACore = RPACore.getInstance();
 
         public List<ccJsonEntity> _ccDataList = new List<ccJsonEntity>();
+        public List<ccPWEntity> _ccPWList = new List<ccPWEntity>(); 
 
         private B2BJsonReault _B2BJsonReault = new B2BJsonReault();
 
         public const string gAddressType = "100000002";
 
         private ExcelWorksheet _SheetPC1, _SheetPC2, _SheetTB1, _SheetTB2,_SheetClientType;
+        private CRMImport _CRMImport;
+
+        public void test()
+        {
+            string dirInPath = _RPACore.Configuration["setting:shareCCFilePath"];
+            //      var st = ShareFileTools.connectState(@"\\192.168.202.25\rpa$", @"grand\rpa", @"welcome1>");
+            InitCCDataJson();
+
+            //    var st =   ShareFileTools.connectState(dirInPath, "grand\rpa", "welcome1>");
+        }
 
         public void run()
         {
@@ -40,10 +52,19 @@ namespace OperateInfoPath
             //转换Json到需要上传到B2b格式的xml,保存
             if (Convert.ToBoolean(_RPACore.Configuration["setting:createFXml"]))
                 SaveToXmlFile();
-
+            //CRM
            SaveToCRMExcel();
-
+            //B2B
             TempJsonExcel();
+
+            //导入CRM数据
+            if (Convert.ToBoolean(_RPACore.Configuration["setting:CRMImportToDB"]))
+            {
+                _CRMImport = new CRMImport(_B2BJsonReault.Data, _RPACore.Db);
+                //    _CRMImport.CreateModels();
+                _CRMImport.InsertToDataBase();
+            }
+          
         }
 
         private void InitXmlFiles()
@@ -59,34 +80,79 @@ namespace OperateInfoPath
         /// </summary>
         private void InitCCDataJson()
         {
-            string jsonFile = _RPACore.CurrentDirectory + "\\ccDatas.json";
-            string jsonStr = JsonHelper.GetJsonFile(jsonFile);
-            _ccDataList = JsonConvert.DeserializeObject<List<ccJsonEntity>>(jsonStr); // JsonSerializer.Deserialize<List<ccJsonEntity>>(jsonStr);
+            string sharefilePath = _RPACore.Configuration["setting:shareCCFilePath"];
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            using (ExcelPackage package = new ExcelPackage(new FileStream(sharefilePath, FileMode.Open)))
+            {
+                //PW sheet2
+                ExcelWorksheet sheetPW = package.Workbook.Worksheets[1];
+                for (int row = 2; row < sheetPW.Dimension.End.Row; row++)
+                {
+                    ccPWEntity pw = new ccPWEntity();
+                    pw.PWRegion = Convert.ToString(sheetPW.Cells[row, 1].Value);
+                    pw.PWICSContact = Convert.ToString(sheetPW.Cells[row, 2].Value);
+                    pw.PWDistrict = Convert.ToString(sheetPW.Cells[row, 3].Value);
+                    pw.PWICSEmail = Convert.ToString(sheetPW.Cells[row, 4].Value);
+                    _ccPWList.Add(pw);
+                }
+
+                ExcelWorksheet sheet = package.Workbook.Worksheets[0];
+               //人员配置表 sheet1
+                for (int row=2; row< sheet.Dimension.End.Row; row++)
+                {
+                    ccJsonEntity ccObj = new ccJsonEntity();
+              
+                    ccObj.TBBranch = Convert.ToString(sheet.Cells[row, 1].Value);
+                    ccObj.TBSalesSupervisor = Convert.ToString(sheet.Cells[row, 2].Value);
+                    ccObj.TBICSContact = Convert.ToString(sheet.Cells[row, 3].Value);
+                    ccObj.TBDistrict = Convert.ToString(sheet.Cells[row, 4].Value);
+                    ccObj.TBICSEmail = Convert.ToString(sheet.Cells[row, 5].Value);
+                    ccObj.TBICSSupervisor = Convert.ToString(sheet.Cells[row, 6].Value);
+                    ccObj.TBICSSupervisorEmail = Convert.ToString(sheet.Cells[row, 7].Value);
+                    ccObj.PCBranch = Convert.ToString(sheet.Cells[row, 9].Value);
+                    ccObj.PCSalesSupervisor = Convert.ToString(sheet.Cells[row, 10].Value);
+                    ccObj.PCICSContact = Convert.ToString(sheet.Cells[row, 11].Value);
+                    ccObj.PCDistrict = Convert.ToString(sheet.Cells[row, 12].Value);
+                    ccObj.PCICSEmail = Convert.ToString(sheet.Cells[row, 13].Value);
+                    ccObj.PCICSSupervisor = Convert.ToString(sheet.Cells[row, 14].Value);
+                    ccObj.PCICSSupervisorEmail = Convert.ToString(sheet.Cells[row, 15].Value);
+
+                    _ccDataList.Add(ccObj);
+                }
+
+               
+
+            }
+      //      string jsonFile = _RPACore.CurrentDirectory + "\\ccDatas.json";
+      //string jsonStr = JsonHelper.GetJsonFile(jsonFile);
+      //_ccDataList = JsonConvert.DeserializeObject<List<ccJsonEntity>>(jsonStr); // JsonSerializer.Deserialize<List<ccJsonEntity>>(jsonStr);
         }
 
 
         public void ConvertInfoPathToTarget()
         {
            foreach(var fi in _xmlFilesList)
-            {
+           {
                 _doc.Load(fi.FullName);
                 _nsmgr = new XmlNamespaceManager(_doc.NameTable);
                 _nsmgr.AddNamespace("my", "http://schemas.microsoft.com/office/infopath/2003/myXSD/2017-10-17T09:00:01");
 
                 var B2BObj = this.CreateB2BSheetEntity();
                 _B2BJsonReault.Data.Add(B2BObj);
-            }
+           }
         }
 
        //手工表中找到记录
         public ccJsonEntity FindinJsonDatas(string branch,bool isPC)
         {
+            ccJsonEntity result = null;
             if (isPC)
             {
-                return _ccDataList.Find(a => a.PCBranch == branch);
+                result =  _ccDataList.Find(a => a.PCBranch == branch);
             }
             else
-                return _ccDataList.Find(a => a.TBBranch == branch);
+                result =  _ccDataList.Find(a => a.TBBranch == branch);
+            return result;
         }
         public B2BEntity CreateB2BSheetEntity()
         {
@@ -125,7 +191,7 @@ namespace OperateInfoPath
                 var ccEntity = FindinJsonDatas(info.branch, obj.Ifpc);
                 if (obj.Ifpc)
                 {
-                    obj.InitPCInfo(info, ccEntity);
+                    obj.InitPCInfo(info, ccEntity,_ccPWList);
                     obj.applyBrand = getNodeInnerText("//my:授权信息/my:申请乘用授权/my:乘用授权/my:乘用授权及目标/my:乘-品牌");
                 }
                 else
@@ -139,7 +205,8 @@ namespace OperateInfoPath
                 obj.K2District = getNodeInnerText("//my:发运组织");
 
                 #region  CRM
-                obj.crmId = Guid.NewGuid().ToString()+"_"+obj.AccountNum;
+                obj.crmId = Guid.NewGuid().ToString() + "_" + obj.AccountNum;
+                obj.crmKind = getNodeInnerText("//my:乘用or商用");
                 this.getAuthListData(obj);
                 //string pathSQ = "//my:合同信息/my:合同授权/my:授权区域";
                 //obj.crmBrand = getNodeInnerText($"{pathSQ }/ my:授权品牌");
@@ -207,7 +274,7 @@ namespace OperateInfoPath
                 if (authEntity.VMModeType == 1)
                     authEntity.LinShouAddr = this.getNodeValue(authNode.SelectSingleNode("my:零售地址", _nsmgr));
                 
-                authEntity.Kind = getNodeInnerText("my:乘用or商用");
+                authEntity.Kind = getNodeInnerText("//my:乘用or商用");
 
                 var IsAllXian = authNode.SelectSingleNode("my:全部or部分区县", _nsmgr).InnerText == "部分" ? false : true;
 
@@ -353,18 +420,11 @@ namespace OperateInfoPath
                 if (node != null && !string.IsNullOrEmpty(node.InnerText))
                 {
                     resultList += node.InnerText + ",";
-                    var findResult = b2BEntity.XFSCList.Find(a => a.Contains(node.InnerText));
+                    var findResult = b2BEntity.XFSCList.Find(a => a.Equals(node.InnerText));
                     if (findResult == null)
                     {
                         b2BEntity.XFSCList.Add(node.InnerText);
                     }
-                   // if (b2BEntity != null)
-                   // {
-                   ////     b2BEntity.XFSCList.Find(a=>a.Contains(a.))
-                   //     b2BEntity.XFSCList.Add(node.InnerText);
-                   // }
-                        
-
                 }
             }
             if(resultList.Length>0)
@@ -605,7 +665,7 @@ namespace OperateInfoPath
                         foreach (string keyunXifen in rd.KeYunXiFenList)
                         {
                             QGTSheet.Cells[row, col++].Value = rd.AccountNum;
-                            QGTSheet.Cells[row, col++].Value = rd.applyBrand;
+                            QGTSheet.Cells[row, col++].Value = "佳通";// rd.applyBrand;
                             QGTSheet.Cells[row, col++].Value = keyunXifen;
                             row++; col = 1;
                         }
@@ -662,17 +722,24 @@ namespace OperateInfoPath
                 sheet.Cells[row, 8].Value = auth.DI;
                 sheet.Cells[row, 9].Value = auth.Xian;
                 sheet.Cells[row, 10].Value = entity.Createdon;
+                row++;
+
+                /*Db*/
+                entity.dbPC1.Add(new CRMModels.tbiz_autharea_c_2012
+                {
+                    ID = entity.crmId,
+                    CustomerCode = entity.AccountNum,
+                    BRAND = auth.Brand,
+                    KIND = auth.Kind,
+                    SHEN= auth.Shen,
+                    VMODE = auth.VMode,
+                    ADDRESS = auth.LinShouAddr,
+                    DI = auth.DI,
+                    XIAN = auth.Xian,
+                    LastUpdateTime =DateTime.Parse(entity.Createdon)
+                });
             }
-            //    sheet.Cells[row, 1].Value = entity.crmId;
-            //sheet.Cells[row, 2].Value = entity.AccountNum;
-            //sheet.Cells[row, 3].Value = entity.crmBrand;
-            //sheet.Cells[row, 4].Value = entity.crmKind;
-            //sheet.Cells[row, 5].Value = entity.crmShen;
-            //sheet.Cells[row, 6].Value = entity.crmVMode;
-            //sheet.Cells[row, 7].Value = entity.crmLinShouAddr;
-            //sheet.Cells[row, 8].Value = entity.crmDI;
-            //sheet.Cells[row, 9].Value = entity.crmXian;
-            //sheet.Cells[row, 10].Value = entity.Createdon;
+          
         }
            
         private void genSheetPC2_header(ExcelWorksheet sheet)
@@ -731,17 +798,27 @@ namespace OperateInfoPath
 
                 if (string.IsNullOrEmpty(crmS2Data.S_T)) sheet.Cells[row, 13].Value = emptyValue;
                 else sheet.Cells[row, 13].Value = Convert.ToInt32(crmS2Data.S_T);
-
-                //sheet.Cells[row, 5].Value = crmS2Data.S_T1;
-                //sheet.Cells[row, 6].Value = crmS2Data.S_Y2;
-                //sheet.Cells[row, 7].Value = crmS2Data.S_T2;
-                //sheet.Cells[row, 8].Value = crmS2Data.S_Y3;
-                //sheet.Cells[row, 9].Value = crmS2Data.S_T3;
-                //sheet.Cells[row, 10].Value = crmS2Data.S_Y4;
-                //sheet.Cells[row, 11].Value = crmS2Data.S_T4;
-                //sheet.Cells[row, 12].Value = crmS2Data.S_Y;
-                //sheet.Cells[row, 13].Value = crmS2Data.S_T;
                 row++;
+
+                /*Db*/
+                tbiz_saletarget_c_2012 dbPC2 = new tbiz_saletarget_c_2012
+                {
+                    ID = entity.crmId,
+                    KIND = entity.crmKind,
+                    BRAND = crmS2Data.Brand,
+                };
+                dbPC2.S_Y1 = string.IsNullOrEmpty(crmS2Data.S_Y1) ?0: Convert.ToInt32(crmS2Data.S_Y1) ;
+                dbPC2.S_Y2 = string.IsNullOrEmpty(crmS2Data.S_Y2) ? 0 : Convert.ToInt32(crmS2Data.S_Y2);
+                dbPC2.S_Y3 = string.IsNullOrEmpty(crmS2Data.S_Y3) ? 0 : Convert.ToInt32(crmS2Data.S_Y3);
+                dbPC2.S_Y4 = string.IsNullOrEmpty(crmS2Data.S_Y4) ? 0 : Convert.ToInt32(crmS2Data.S_Y4);
+                dbPC2.S_Y = string.IsNullOrEmpty(crmS2Data.S_Y) ? 0 : Convert.ToInt32(crmS2Data.S_Y);
+                dbPC2.S_T1 = string.IsNullOrEmpty(crmS2Data.S_T1) ? 0 : Convert.ToInt32(crmS2Data.S_T1);
+                dbPC2.S_T2 = string.IsNullOrEmpty(crmS2Data.S_T2) ? 0 : Convert.ToInt32(crmS2Data.S_T2);
+                dbPC2.S_T3 = string.IsNullOrEmpty(crmS2Data.S_T3) ? 0 : Convert.ToInt32(crmS2Data.S_T3);
+                dbPC2.S_T4 = string.IsNullOrEmpty(crmS2Data.S_T4) ? 0 : Convert.ToInt32(crmS2Data.S_T4);
+                dbPC2.S_T = string.IsNullOrEmpty(crmS2Data.S_T) ? 0 : Convert.ToInt32(crmS2Data.S_T);
+                entity.dbPC2.Add(dbPC2);
+
             }
         }
 
@@ -781,6 +858,23 @@ namespace OperateInfoPath
                 sheet.Cells[row, 11].Value = auth.Xian;
                 sheet.Cells[row, 12].Value = entity.Createdon;
                 row++;
+
+                /*Db*/
+                entity.dbTB1.Add(new CRMModels.tbiz_autharea_2012
+                {
+                    ID = entity.crmId,
+                    CustomerCode = entity.AccountNum,
+                    PINZ = auth.Kind,
+                    PINP = auth.Brand,
+                    SCXFEN = auth.XFSCStr,
+                    TIRETYPE = auth.Series,
+                    SHEN = auth.Shen,
+                    VMODE = auth.VMode,
+                    ADDRESS = auth.LinShouAddr,
+                    DI = auth.DI,
+                    XIAN = auth.Xian,
+                    LastUpdateTime = DateTime.Parse(entity.Createdon)
+                });
             }
         //    sheet.Cells[row, 3].Value = entity.crmKind;
         //    sheet.Cells[row, 4].Value = entity.crmBrand;
@@ -854,17 +948,27 @@ namespace OperateInfoPath
 
                 if (string.IsNullOrEmpty(crmS2Data.S_T)) sheet.Cells[row, 14].Value = emptyValue;
                 else sheet.Cells[row, 14].Value = Convert.ToInt32(crmS2Data.S_T);
-
-                //sheet.Cells[row, 5].Value = crmS2Data.S_T1;
-                //sheet.Cells[row, 6].Value = crmS2Data.S_Y2;
-                //sheet.Cells[row, 7].Value = crmS2Data.S_T2;
-                //sheet.Cells[row, 8].Value = crmS2Data.S_Y3;
-                //sheet.Cells[row, 9].Value = crmS2Data.S_T3;
-                //sheet.Cells[row, 10].Value = crmS2Data.S_Y4;
-                //sheet.Cells[row, 11].Value = crmS2Data.S_T4;
-                //sheet.Cells[row, 12].Value = crmS2Data.S_Y;
-                //sheet.Cells[row, 13].Value = crmS2Data.S_T;
                 row++;
+
+                /*Db*/
+                tbiz_saletarget_2012 dbTB2 = new tbiz_saletarget_2012
+                {
+                    ID = entity.crmId,
+                    BINZHONG = entity.crmKind,
+                    PINPAI = crmS2Data.Brand,
+                    SCXIFEN = crmS2Data.SCXIFEN
+            };
+                dbTB2.S_Y1 = string.IsNullOrEmpty(crmS2Data.S_Y1) ? 0 : Convert.ToInt32(crmS2Data.S_Y1);
+                dbTB2.S_Y2 = string.IsNullOrEmpty(crmS2Data.S_Y2) ? 0 : Convert.ToInt32(crmS2Data.S_Y2);
+                dbTB2.S_Y3 = string.IsNullOrEmpty(crmS2Data.S_Y3) ? 0 : Convert.ToInt32(crmS2Data.S_Y3);
+                dbTB2.S_Y4 = string.IsNullOrEmpty(crmS2Data.S_Y4) ? 0 : Convert.ToInt32(crmS2Data.S_Y4);
+                dbTB2.S_Y = string.IsNullOrEmpty(crmS2Data.S_Y) ? 0 : Convert.ToInt32(crmS2Data.S_Y);
+                dbTB2.S_T1 = string.IsNullOrEmpty(crmS2Data.S_T1) ? 0 : Convert.ToInt32(crmS2Data.S_T1);
+                dbTB2.S_T2 = string.IsNullOrEmpty(crmS2Data.S_T2) ? 0 : Convert.ToInt32(crmS2Data.S_T2);
+                dbTB2.S_T3 = string.IsNullOrEmpty(crmS2Data.S_T3) ? 0 : Convert.ToInt32(crmS2Data.S_T3);
+                dbTB2.S_T4 = string.IsNullOrEmpty(crmS2Data.S_T4) ? 0 : Convert.ToInt32(crmS2Data.S_T4);
+                dbTB2.S_T = string.IsNullOrEmpty(crmS2Data.S_T) ? 0 : Convert.ToInt32(crmS2Data.S_T);
+                entity.dbTB2.Add(dbTB2);
             }
         }
 
@@ -889,6 +993,18 @@ namespace OperateInfoPath
                 _SheetClientType.Cells[row, 4].Value = "N";
                 _SheetClientType.Cells[row, 5].Value = rowData.Createdon;
                 row++;
+                rowData.dbSummery.Add(new TPRT_Client_TYPE
+                {
+                    CUST_NUMBER = rowData.AccountNum,
+                    IS_PCR = rowData.Ifpc ? "Y" : "N",
+                    IS_TBR = rowData.Ifpc ? "N" : "Y",
+                    IS_BIAS = "N",
+                    LAST_UPDATE = rowData.Createdon
+                });
+                //entity.dbTB1.Add(new CRMModels.tbiz_autharea_2012
+                //{
+                //}
+
             }
         }
     }

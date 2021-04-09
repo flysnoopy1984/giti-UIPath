@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using SqlSugar;
+
 namespace RPA.Core
 {
     public class RPACore
@@ -8,11 +12,21 @@ namespace RPA.Core
         private  IConfigurationBuilder _ConfigurationBuilder = new ConfigurationBuilder();
         private IConfiguration _configuration;
         private string _CurrentDirectory;
+        private SqlSugarClient _Db = null;
 
         public IConfiguration Configuration
         {
             get { return _configuration; }
         }
+
+        public SqlSugarClient Db
+        {
+            get
+            {
+                return _Db;
+            }
+        }
+
 
         public string CurrentDirectory
         {
@@ -29,8 +43,8 @@ namespace RPA.Core
         }
         private RPACore()
         {
-            FileInfo fi = new FileInfo(@"C:\Project\UIPath\ImportUserToWeb_Inner\Do\HistoryFiles\Inner\B2B客户新建账号--07 03 _1.xlsx");
-            string ee = fi.Extension;
+        //    FileInfo fi = new FileInfo(@"C:\Project\UIPath\ImportUserToWeb_Inner\Do\HistoryFiles\Inner\B2B客户新建账号--07 03 _1.xlsx");
+         //   string ee = fi.Extension;
         }
         public  void InitSystem(Type type) 
         {
@@ -40,7 +54,37 @@ namespace RPA.Core
             _configuration = _ConfigurationBuilder.SetBasePath(_CurrentDirectory)
                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                   .Build();
-          
+
+            SqlSugarSetup();
+         //   var serviceCollection = new ServiceCollection();
+         //  serviceCollection.AddSqlSugarSetup(_configuration);
+         //       ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+
+            //    _Db = serviceProvider.GetService<SqlSugarClient>();
+        }
+
+        private void SqlSugarSetup()
+        {
+            var appcfg = _configuration.GetSection("DataBases").GetChildren();
+            List<ConnectionConfig> ccList = new List<ConnectionConfig>();
+
+            foreach (var cfg in appcfg)
+            {
+                ConnectionConfig cc = new ConnectionConfig
+                {
+                    DbType = DbType.SqlServer,
+                    ConfigId = cfg["ConfId"],
+                    IsAutoCloseConnection = true,
+                
+                    ConnectionString = cfg["Connection"],
+
+                };
+                ccList.Add(cc);
+            }
+            _Db = new SqlSugarClient(ccList[0]);
+
+
+
         }
     }
 }

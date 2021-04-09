@@ -1,0 +1,11 @@
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Debug\netcoreapp3.1\HugeExcel.exe
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Debug\netcoreapp3.1\HugeExcel.deps.json
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Debug\netcoreapp3.1\HugeExcel.runtimeconfig.json
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Debug\netcoreapp3.1\HugeExcel.runtimeconfig.dev.json
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Debug\netcoreapp3.1\HugeExcel.dll
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Debug\netcoreapp3.1\HugeExcel.pdb
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Debug\netcoreapp3.1\HugeExcel.csprojAssemblyReference.cache
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Debug\netcoreapp3.1\HugeExcel.AssemblyInfoInputs.cache
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Debug\netcoreapp3.1\HugeExcel.AssemblyInfo.cs
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Debug\netcoreapp3.1\HugeExcel.dll
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Debug\netcoreapp3.1\HugeExcel.pdb

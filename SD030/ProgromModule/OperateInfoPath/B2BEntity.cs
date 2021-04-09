@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using OperateInfoPath.CRMModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,9 +17,9 @@ namespace OperateInfoPath
 
         public string SalesEmail { get; set; }
 
-        public string SalesSupervisor { get; set; }
+        //public string SalesSupervisor { get; set; }
 
-        public string SalesSupervisorEmail { get; set; }
+        //public string SalesSupervisorEmail { get; set; }
     }
 
     public class AddressEntity
@@ -103,6 +104,15 @@ namespace OperateInfoPath
     }
     public class B2BEntity
     {
+        public List<tbiz_autharea_c_2012> dbPC1 { get; set; } = new List<tbiz_autharea_c_2012>();
+        public List<tbiz_saletarget_c_2012> dbPC2 { get; set; } = new List<tbiz_saletarget_c_2012>();
+
+        public List<tbiz_autharea_2012> dbTB1 { get; set; } = new List<tbiz_autharea_2012>();
+
+        public List<tbiz_saletarget_2012> dbTB2 { get; set; } = new List<tbiz_saletarget_2012>();
+
+        public List<TPRT_Client_TYPE> dbSummery { get; set; } = new List<TPRT_Client_TYPE>();
+
         private List<AddressEntity> _AddressList;
         public List<AddressEntity> AddressList {
             get
@@ -293,13 +303,28 @@ namespace OperateInfoPath
         #endregion
 
 
-        public void InitPCInfo(dbssInfo info,ccJsonEntity ccJsonEntity)
+        public void InitPCInfo(dbssInfo info,ccJsonEntity ccJsonEntity, List<ccPWEntity> pwList)
         {
             if (ccJsonEntity != null)
             {
-                ICSContact = ccJsonEntity.PCICSContact;
-                CustomerEmail = ccJsonEntity.PCICSEmail;
-                CustomerServiceDistribution = ccJsonEntity.PCDistrict;
+               
+                if(info.branch == "—")
+                {
+                    var pw = pwList.Find(a => a.PWRegion == info.district);
+                    if (pw != null)
+                    {
+                        ICSContact = pw.PWICSContact;
+                        CustomerEmail = pw.PWICSEmail;
+                        CustomerServiceDistribution = pw.PWDistrict;
+                    }
+                }
+                else
+                {
+                    ICSContact = ccJsonEntity.PCICSContact;
+                    CustomerEmail = ccJsonEntity.PCICSEmail;
+                    CustomerServiceDistribution = ccJsonEntity.PCDistrict;
+                }
+              
             }
            
             Pcbranch = info.branch;
