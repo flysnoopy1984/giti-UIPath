@@ -41,28 +41,42 @@ namespace OperateInfoPath
         public void run()
         {
             //对照表
+            NLogUtil.cc_InfoTxt("客服对照表初始化-B");
             InitCCDataJson();
-            
+            NLogUtil.cc_InfoTxt("客服对照表初始化-E");
+
+            NLogUtil.cc_InfoTxt("将InfoPath文件数据转成c#对象-B");
             //找到需要转换的infoPath
             InitXmlFiles();
-         
             //将一个或多个infoPath转换成B2BEntity对象
             ConvertInfoPathToTarget();
+            NLogUtil.cc_InfoTxt("将InfoPath文件数据转成c#对象-E");
 
             //转换Json到需要上传到B2b格式的xml,保存
             if (Convert.ToBoolean(_RPACore.Configuration["setting:createFXml"]))
+            {
+                NLogUtil.cc_InfoTxt("转换Json为需要上传到B2b格式的xml,保存-B");
                 SaveToXmlFile();
+                NLogUtil.cc_InfoTxt("转换Json为需要上传到B2b格式的xml,保存-E");
+            }
+
             //CRM
-           SaveToCRMExcel();
+            NLogUtil.cc_InfoTxt("导出CRM Excel并保存-B");
+            SaveToCRMExcel();
+            NLogUtil.cc_InfoTxt("导出CRM Excel并保存-E");
             //B2B
+            NLogUtil.cc_InfoTxt("导出B2B Excel并保存-B");
             TempJsonExcel();
+            NLogUtil.cc_InfoTxt("导出B2B Excel并保存-E");
 
             //导入CRM数据
             if (Convert.ToBoolean(_RPACore.Configuration["setting:CRMImportToDB"]))
             {
+                NLogUtil.cc_InfoTxt("CRM数据写入到数据库-B");
                 _CRMImport = new CRMImport(_B2BJsonReault.Data, _RPACore.Db);
                 //    _CRMImport.CreateModels();
                 _CRMImport.InsertToDataBase();
+                NLogUtil.cc_InfoTxt("CRM数据写入到数据库-E");
             }
           
         }
@@ -271,6 +285,10 @@ namespace OperateInfoPath
                    VMode = this.getNodeValue(authNode.SelectSingleNode("my:经营方式", _nsmgr)),
                    DI = this.getNodeValue(authNode.SelectSingleNode("my:地级市", _nsmgr)),
                 };
+                //CR 2021-4-29 乘用，品牌是“佳安”并且VMODE是空值时，VMODE给默认值：批发 
+                if (obj.Ifpc && authEntity.Brand == "佳安" && string.IsNullOrEmpty(authEntity.VMode))
+                    authEntity.VMode = "批发";
+
                 if (authEntity.VMModeType == 1)
                     authEntity.LinShouAddr = this.getNodeValue(authNode.SelectSingleNode("my:零售地址", _nsmgr));
                 

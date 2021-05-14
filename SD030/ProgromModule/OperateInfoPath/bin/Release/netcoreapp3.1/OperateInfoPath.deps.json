@@ -6,9 +6,11 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "OperateInfoPath/1.0.0": {
+      "OperateInfoPath/1.0.1": {
         "dependencies": {
           "EPPlus": "5.5.1",
+          "NLog.Config": "4.7.9",
+          "NLog.Web.AspNetCore": "4.12.0",
           "Newtonsoft.Json": "12.0.3",
           "RPA.Core": "1.0.0",
           "SqlSugarCore": "5.0.2.6"
@@ -158,6 +160,11 @@
           }
         }
       },
+      "Microsoft.Extensions.Configuration.Binder/3.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "5.0.0"
+        }
+      },
       "Microsoft.Extensions.Configuration.FileExtensions/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "5.0.0",
@@ -239,6 +246,21 @@
           }
         }
       },
+      "Microsoft.Extensions.Logging/3.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Binder": "3.0.0",
+          "Microsoft.Extensions.DependencyInjection": "5.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Options": "3.0.0"
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/3.0.0": {},
+      "Microsoft.Extensions.Options/3.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        }
+      },
       "Microsoft.Extensions.Primitives/5.0.0": {
         "runtime": {
           "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {
@@ -274,20 +296,6 @@
       "Microsoft.Win32.SystemEvents/4.7.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.56404"
-          }
         }
       },
       "MySql.Data/8.0.21": {
@@ -372,6 +380,44 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "12.0.0.0",
             "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "NLog/4.7.9": {
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.7.9.12899"
+          }
+        }
+      },
+      "NLog.Config/4.7.9": {
+        "dependencies": {
+          "NLog": "4.7.9",
+          "NLog.Schema": "4.7.9"
+        }
+      },
+      "NLog.Extensions.Logging/1.7.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "3.0.0",
+          "NLog": "4.7.9"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/NLog.Extensions.Logging.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.7.2.1548"
+          }
+        }
+      },
+      "NLog.Schema/4.7.9": {},
+      "NLog.Web.AspNetCore/4.12.0": {
+        "dependencies": {
+          "NLog.Extensions.Logging": "1.7.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/NLog.Web.AspNetCore.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.12.0.1931"
           }
         }
       },
@@ -859,12 +905,6 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
           "Microsoft.Win32.SystemEvents": "4.7.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Drawing.Common.dll": {
-            "assemblyVersion": "4.0.0.1",
-            "fileVersion": "4.6.26919.2"
-          }
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
@@ -1401,12 +1441,6 @@
         "dependencies": {
           "System.Security.AccessControl": "4.6.0",
           "System.Windows.Extensions": "4.6.0"
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/System.Security.Permissions.dll": {
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.700.19.46214"
-          }
         }
       },
       "System.Security.Principal/4.3.0": {
@@ -1504,20 +1538,6 @@
       "System.Windows.Extensions/4.6.0": {
         "dependencies": {
           "System.Drawing.Common": "4.7.1"
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/System.Windows.Extensions.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.700.19.46214"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll": {
-            "rid": "win",
-            "assetType": "runtime",
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.700.19.46214"
-          }
         }
       },
       "System.Xml.ReaderWriter/4.3.0": {
@@ -1608,6 +1628,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
           "Microsoft.Extensions.Configuration.Json": "5.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.1",
+          "NLog": "4.7.9",
           "SqlSugarCore": "5.0.2.6"
         },
         "runtime": {
@@ -1617,7 +1638,7 @@
     }
   },
   "libraries": {
-    "OperateInfoPath/1.0.0": {
+    "OperateInfoPath/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1699,6 +1720,13 @@
       "path": "microsoft.extensions.configuration.abstractions/5.0.0",
       "hashPath": "microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512"
     },
+    "Microsoft.Extensions.Configuration.Binder/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iw3UL25Cw9GBILJOs8srwcId2UCz5+BxTu//EN5dO2dOFNtHcNJgnUiqIlmcGi0orIco0pDuDXuIDvhkrY/sGQ==",
+      "path": "microsoft.extensions.configuration.binder/3.0.0",
+      "hashPath": "microsoft.extensions.configuration.binder.3.0.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.Configuration.FileExtensions/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1747,6 +1775,27 @@
       "sha512": "sha512-ArliS8lGk8sWRtrWpqI8yUVYJpRruPjCDT+EIjrgkA/AAPRctlAkRISVZ334chAKktTLzD1+PK8F5IZpGedSqA==",
       "path": "microsoft.extensions.filesystemglobbing/5.0.0",
       "hashPath": "microsoft.extensions.filesystemglobbing.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rxs1i2denq0Sv0XMvAeISK7AskV5x7aihvlIlepJKFfkbE6PgbeXfPOElD0kf3Wr2Roo57ASQa5xUL9LTHWChA==",
+      "path": "microsoft.extensions.logging/3.0.0",
+      "hashPath": "microsoft.extensions.logging.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+PsosTYZn+omucI0ff9eywo9QcPLwcbIWf7dz7ZLM1zGR8gVZXJ3wo6+tkuIedUNW5iWENlVJPEvrGjiVeoNNQ==",
+      "path": "microsoft.extensions.logging.abstractions/3.0.0",
+      "hashPath": "microsoft.extensions.logging.abstractions.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aZuVhN/TC872Yb55nrb7an82sfSAdNYxIyzu3zbYHOnhwal5hdkBUxzuoYj1khI2sw0tWq6i82i624zEFmiJhg==",
+      "path": "microsoft.extensions.options/3.0.0",
+      "hashPath": "microsoft.extensions.options.3.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Primitives/5.0.0": {
       "type": "package",
@@ -1817,6 +1866,41 @@
       "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "NLog/4.7.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y0dKY5d506ZVcb8dTMp3BSb+jUGaFu/ArvRkgn4daDWKf7qqFXjEFYjqoyTrWkcNguqS6avkwICS0hsFsr4BzA==",
+      "path": "nlog/4.7.9",
+      "hashPath": "nlog.4.7.9.nupkg.sha512"
+    },
+    "NLog.Config/4.7.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qZp3XTzpoWue0EL51DWlgqbBuXsCBpR/80lTqsgxzIhcnR9eMgCSjDt3acgdBLEHNkxVDd5/COOIXyEOQUJf7g==",
+      "path": "nlog.config/4.7.9",
+      "hashPath": "nlog.config.4.7.9.nupkg.sha512"
+    },
+    "NLog.Extensions.Logging/1.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0y1QziAUCdePQc4itPOQF3xDcs0iE9NHlIK0hE0eA0+Ef6E9dnJDPveNu7w2ckYaDfJIFHpOoLK8sZmNEyiBCw==",
+      "path": "nlog.extensions.logging/1.7.2",
+      "hashPath": "nlog.extensions.logging.1.7.2.nupkg.sha512"
+    },
+    "NLog.Schema/4.7.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vTDiVjd07WHpyOS2sFIsLm+cUeAwV84w4/EM6VQN53VKFVKNcMpttEXx+scmvAM7Zwx/msKhCptqcS8W2TbjXg==",
+      "path": "nlog.schema/4.7.9",
+      "hashPath": "nlog.schema.4.7.9.nupkg.sha512"
+    },
+    "NLog.Web.AspNetCore/4.12.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-imBvT0hmVd1bhDpd4cNwurcPDZ9jdHwxH5C3+dzcLQ8stq/wpP/1wbpd3hTzpfrwFkVp06rMXrbdXWcmnw4/Cw==",
+      "path": "nlog.web.aspnetcore/4.12.0",
+      "hashPath": "nlog.web.aspnetcore.4.12.0.nupkg.sha512"
     },
     "Npgsql/3.2.7": {
       "type": "package",

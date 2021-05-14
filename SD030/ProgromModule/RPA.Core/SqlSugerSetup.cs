@@ -33,9 +33,7 @@ namespace RPA.Core
                     };
                     ccList.Add(cc);
                 }
-
                 var db = new SqlSugarClient(ccList);
-
                 return db;
             });
 

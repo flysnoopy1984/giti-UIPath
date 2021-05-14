@@ -102,7 +102,7 @@ namespace CSVAnalysis
             {
                 using (var csvReader = new CsvReader(SRFile, CultureInfo.InvariantCulture))
                 {
-
+                    
                     var datas = csvReader.GetRecords<SC030CSVEntity>().ToList();
                     Console.WriteLine($"读取文件行--{datas.Count}");
                     _result = datas.FindAll(a => Convert.ToDateTime(a.a1) >= _startDate && Convert.ToDateTime(a.a1) <= _endDate);

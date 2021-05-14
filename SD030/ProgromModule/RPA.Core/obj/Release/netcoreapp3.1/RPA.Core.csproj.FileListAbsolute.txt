@@ -6,3 +6,4 @@ C:\Project\UIPath\SD030\ProgromModule\RPA.Core\obj\Release\netcoreapp3.1\RPA.Cor
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\obj\Release\netcoreapp3.1\RPA.Core.AssemblyInfo.cs
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\obj\Release\netcoreapp3.1\RPA.Core.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\obj\Release\netcoreapp3.1\RPA.Core.pdb
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\obj\Release\netcoreapp3.1\RPA.Core.csproj.CoreCompileInputs.cache

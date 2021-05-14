@@ -12,6 +12,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
           "Microsoft.Extensions.Configuration.Json": "5.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.1",
+          "NLog": "4.7.9",
           "SqlSugarCore": "5.0.2.6"
         },
         "runtime": {
@@ -350,6 +351,14 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {
             "assemblyVersion": "10.0.0.0",
             "fileVersion": "10.0.3.21018"
+          }
+        }
+      },
+      "NLog/4.7.9": {
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.7.9.12899"
           }
         }
       },
@@ -1705,6 +1714,13 @@
       "sha512": "sha512-wBM7i7i3U2WX0ecor4zdVGvgrwFUjuigBoHKiL+nH39fCOpCPjBY3RDqJM32edvdyTAVdjzlccHsg41+/+zpSA==",
       "path": "newtonsoft.json/10.0.3",
       "hashPath": "newtonsoft.json.10.0.3.nupkg.sha512"
+    },
+    "NLog/4.7.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y0dKY5d506ZVcb8dTMp3BSb+jUGaFu/ArvRkgn4daDWKf7qqFXjEFYjqoyTrWkcNguqS6avkwICS0hsFsr4BzA==",
+      "path": "nlog/4.7.9",
+      "hashPath": "nlog.4.7.9.nupkg.sha512"
     },
     "Npgsql/3.2.7": {
       "type": "package",

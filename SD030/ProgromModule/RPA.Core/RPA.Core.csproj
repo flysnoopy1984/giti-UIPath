@@ -9,6 +9,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="NLog" Version="4.7.9" />
     <PackageReference Include="SqlSugarCore" Version="5.0.2.6" />
   </ItemGroup>
 

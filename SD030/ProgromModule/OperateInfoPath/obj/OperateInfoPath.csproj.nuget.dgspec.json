@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Project\\UIPath\\SD030\\ProgromModule\\OperateInfoPath\\OperateInfoPath.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\Project\\UIPath\\SD030\\ProgromModule\\OperateInfoPath\\OperateInfoPath.csproj",
         "projectName": "OperateInfoPath",
@@ -29,6 +29,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
               "C:\\Project\\UIPath\\SD030\\ProgromModule\\RPA.Core\\RPA.Core.csproj": {
                 "projectPath": "C:\\Project\\UIPath\\SD030\\ProgromModule\\RPA.Core\\RPA.Core.csproj"
@@ -44,10 +45,19 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "EPPlus": {
               "target": "Package",
               "version": "[5.5.1, )"
+            },
+            "NLog.Config": {
+              "target": "Package",
+              "version": "[4.7.9, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[4.12.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -73,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -102,6 +112,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -113,6 +124,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -129,6 +141,10 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[5.0.1, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.9, )"
             },
             "SqlSugarCore": {
               "target": "Package",
@@ -150,7 +166,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

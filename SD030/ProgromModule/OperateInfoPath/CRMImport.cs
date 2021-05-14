@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using OperateInfoPath.CRMModels;
+using RPA.Core;
 using SqlSugar;
 using System;
 using System.Collections.Generic;
@@ -26,29 +27,46 @@ namespace OperateInfoPath
 
         public  void InsertToDataBase()
         {
-            foreach(var data in _dataList)
+            try
             {
-                foreach(var pc1 in data.dbPC1)
+                var result = _Db.UseTran(() =>
                 {
-                    _Db.Insertable(pc1).ExecuteCommand();
-                }
-                foreach (var pc2 in data.dbPC2)
+                    int n;
+                    foreach (var data in _dataList)
+                    {
+                        foreach (var pc1 in data.dbPC1)
+                        {
+                             n = _Db.Insertable(pc1).ExecuteCommand();
+                        }
+                        foreach (var pc2 in data.dbPC2)
+                        {
+                            n = _Db.Insertable(pc2).ExecuteCommand();
+                        }
+                        foreach (var tb1 in data.dbTB1)
+                        {
+                            n = _Db.Insertable(tb1).ExecuteCommand();
+                        }
+                        foreach (var tb2 in data.dbTB2)
+                        {
+                            n = _Db.Insertable(tb2).ExecuteCommand();
+                        }
+                        foreach (var summery in data.dbSummery)
+                        {
+                            n = _Db.Insertable(summery).ExecuteCommand();
+                        }
+                    }
+                });
+                if (!result.IsSuccess)
                 {
-                    _Db.Insertable(pc2).ExecuteCommand();
+                    NLogUtil.cc_ErrorTxt("CRM Import InsertToDataBase: " + result.ErrorException);
                 }
-                foreach (var tb1 in data.dbTB1)
-                {
-                    _Db.Insertable(tb1).ExecuteCommand();
-                }
-                foreach (var tb2 in data.dbTB2)
-                {
-                    _Db.Insertable(tb2).ExecuteCommand();
-                }
-                foreach (var summery in data.dbSummery)
-                {
-                    _Db.Insertable(summery).ExecuteCommand();
-                }
+               
             }
+            catch(Exception ex)
+            {
+                NLogUtil.cc_ErrorTxt("CRM Import InsertToDataBase: "+ex.Message);
+            }
+          
 
         }
 
