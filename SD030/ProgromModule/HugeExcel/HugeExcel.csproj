@@ -23,6 +23,8 @@
 
   <ItemGroup>
     <Folder Include="DownLoadFiles\" />
+    <Folder Include="FinalFile\" />
+    <Folder Include="History\" />
   </ItemGroup>
 
 </Project>
