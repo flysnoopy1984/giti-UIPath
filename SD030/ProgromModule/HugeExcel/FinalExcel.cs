@@ -88,7 +88,7 @@ namespace HugeExcel
         private void SetMainStyleAndFormula(ExcelPackage package,ExcelWorksheet sheet)
         {
             int FirstMonthRow = 7;
-            int curMonth = DateTime.Now.Month;
+            int curMonth = DateTime.Now.Month-1;
             int curMonthRow = FirstMonthRow + curMonth;
             int curCol = 22;
             int colorStartCol = 14;
@@ -154,11 +154,6 @@ namespace HugeExcel
                 Console.WriteLine($"SetMainSheets Error: row：{curMonthRow}  col:{c}");
                 throw ex;
             }
-
-
-
-
-
             //图-全钢胎
             //     sheet = package.Workbook.Worksheets["图-全钢胎"];
             //     sheet.Cells[curMonthRow, curCol].Formula = $"=G{curMonthRow}";
