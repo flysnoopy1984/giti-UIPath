@@ -13,38 +13,39 @@ namespace HugeExcel
     {
         public static RPACore _RPACore = RPACore.getInstance();
 
-        public string _FilePath;
+        private string _FilePath;
+        private DirectoryInfo _fileDir;
         public FinalExcel()
         {
-            var dirPath = _RPACore.Configuration["HugeExcel:finalDir"] ;
-            DirectoryInfo di = new DirectoryInfo(dirPath);
-            var files = di.GetFiles();
-            if (files.Length > 0)
+            InitFilePath();
+        }
+
+        public string FilePath
+        {
+            get
             {
-                _FilePath = files[0].FullName;
-             
+                return _FilePath;
             }
         }
 
-        public void Test()
+        public string DirPath
         {
-
-            var fp = @"C:\Project\UIPath\SD030\ProgromModule\HugeExcel\FinalFile\test.xlsx";
-            ExcelRange cOld = null;
-            ExcelRange cNew = null;
-
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            using (ExcelPackage package = new ExcelPackage(new FileInfo(fp)))
+            get
             {
-                var sheet = package.Workbook.Worksheets["Sheet1"];
-                cOld = sheet.Cells[1, 3];
-                cNew = sheet.Cells[2, 3];
-                cNew.FormulaR1C1 = cOld.FormulaR1C1;
-                cNew.StyleID = cOld.StyleID;
-                cOld.Style.Fill.BackgroundColor.SetColor(Color.White);
-                package.Save();
+                return _fileDir.FullName;
             }
+        }
 
+        public void InitFilePath()
+        {
+            var dirPath = _RPACore.Configuration["HugeExcel:finalDir"];
+            _fileDir = new DirectoryInfo(dirPath);
+            var files = _fileDir.GetFiles();
+            if (files.Length > 0)
+            {
+                _FilePath = files[0].FullName;
+            }
+          
         }
 
         //表-数量
@@ -160,7 +161,6 @@ namespace HugeExcel
 
         }
 
-      
         public void Run(DataTable dt)
         {
             if (!string.IsNullOrEmpty(_FilePath))
@@ -176,7 +176,6 @@ namespace HugeExcel
                     sheet = package.Workbook.Worksheets["图-全钢胎"];
                     SetMainStyleAndFormula(package, sheet);
                     package.Save();
-
                 }
             }
         }

@@ -25,6 +25,8 @@
     <Folder Include="DownLoadFiles\" />
     <Folder Include="FinalFile\" />
     <Folder Include="History\" />
+    <Folder Include="Result\" />
+    <Folder Include="NewCustomer\" />
   </ItemGroup>
 
 </Project>

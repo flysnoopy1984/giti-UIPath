@@ -3,16 +3,16 @@
   "description": "事务流程",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.9.3]",
-    "UiPath.Mail.Activities": "[1.9.3]",
-    "UiPath.System.Activities": "[20.10.1]",
-    "UiPath.UIAutomation.Activities": "[20.10.6]"
+    "UiPath.Excel.Activities": "[2.10.4]",
+    "UiPath.Mail.Activities": "[1.10.5]",
+    "UiPath.System.Activities": "[21.4.1]",
+    "UiPath.UIAutomation.Activities": "[21.4.4]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "20.10.2.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
@@ -44,6 +44,12 @@
     {
       "filePath": "Main.xaml",
       "uniqueId": "90d06a9d-2005-48b1-859a-7a4ab541d82b",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "TestMain.xaml",
+      "uniqueId": "b8f74a8e-a533-4420-934a-478e1e0df11b",
       "input": [],
       "output": []
     }

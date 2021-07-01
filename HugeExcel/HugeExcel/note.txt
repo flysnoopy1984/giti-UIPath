@@ -1,0 +1,20 @@
+1.1 删除Download文件夹下的内容。
+1.2 删除Result文件夹下的内容
+
+1.3 查看远程文件夹是否存在模板文件
+1.3.1 如果存在移动到到本地Final
+1.3.2 如果不存在查看本地Final是否有模板.模板文件名有“当月”
+
+2.从BI开始下载到Download文件夹
+3.运行程序。
+3.1 程序删除
+
+
+
+string finalDir = runDir+@"Do\FinalFile\";
+
+DirectoryInfo dir = new DirectoryInfo(finalDir);
+var fileList = dir.GetFiles().ToList();
+foreach(var file in fileList){
+	file.Delete();
+}

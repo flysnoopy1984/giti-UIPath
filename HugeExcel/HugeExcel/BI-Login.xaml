@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>884,844.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>986.666666666667,1071.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LoginBI_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -55,15 +55,20 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LoginBI" sap:VirtualizedContainerService.HintSize="508.666666666667,740" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LoginBI" sap:VirtualizedContainerService.HintSize="508.666666666667,1006.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="BIUrl">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">http://sh-hq-amd.grand.gt:9704/analytics/saw.dll?BIEEHome&amp;startPage=1</Literal>
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="http://sh-hq-amd.grand.gt:9704/analytics/saw.dll?BIEEHome&amp;startPage=1" Name="BIUrl" />
       <Variable x:TypeArguments="x:String" Default="fandehong" Name="BILoginUser" />
       <Variable x:TypeArguments="x:String" Default="welcome1184" Name="BILoginPwd" />
     </Sequence.Variables>
@@ -72,6 +77,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="日志消息" sap:VirtualizedContainerService.HintSize="466.666666666667,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;BILogin Start&quot;]" />
     <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="IE" DisplayName="打开浏览器" sap:VirtualizedContainerService.HintSize="466.666666666667,648" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[IEBrowser]" Url="[BIUrl]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
@@ -134,5 +140,6 @@
         </ActivityAction>
       </ui:OpenBrowser.Body>
     </ui:OpenBrowser>
+    <ui:LogMessage DisplayName="日志消息" sap:VirtualizedContainerService.HintSize="466.666666666667,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;BILogin End&quot;]" />
   </Sequence>
 </Activity>

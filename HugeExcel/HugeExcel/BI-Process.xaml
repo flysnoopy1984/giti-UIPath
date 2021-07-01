@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>514,6178</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>986.666666666667,6654</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>BI_Process_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -71,7 +71,7 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BI_Process" sap:VirtualizedContainerService.HintSize="494,6118" sap2010:WorkflowViewState.IdRef="Sequence_7">
+  <Sequence DisplayName="BI_Process" sap:VirtualizedContainerService.HintSize="494,6549.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="lastMonth" />
       <Variable x:TypeArguments="x:String" Name="str_SelectMonth" />
@@ -80,12 +80,14 @@
       <Variable x:TypeArguments="x:String" Name="filePath_KaiPiao" />
       <Variable x:TypeArguments="x:String" Name="batchNo" />
       <Variable x:TypeArguments="x:String" Name="str_FilterMonth" />
+      <Variable x:TypeArguments="x:String" Name="downFileDir" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="日志消息" sap:VirtualizedContainerService.HintSize="452,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;BIWeb Process Start&quot;]" />
     <Assign DisplayName="分配" sap:VirtualizedContainerService.HintSize="452,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[batchNo]</OutArgument>
@@ -118,6 +120,14 @@
         <InArgument x:TypeArguments="x:String">["&lt;webctrl id='dropdownid_ck"+(lastMonth-1).ToString()+"' tag='INPUT' type='checkbox' /&gt;"]</InArgument>
       </Assign.Value>
     </Assign>
+    <Assign DisplayName="分配" sap:VirtualizedContainerService.HintSize="452,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[downFileDir]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[runDir+"Do\DownloadFiles\"]</InArgument>
+      </Assign.Value>
+    </Assign>
     <Assign DisplayName="分配" sap:VirtualizedContainerService.HintSize="452,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[filePath_FaHuo]</OutArgument>
@@ -134,27 +144,26 @@
         <InArgument x:TypeArguments="x:String">[runDir+"Do\DownloadFiles\KaiPiao_"+batchNo+".csv"]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="if(File.Exists(fp1))&#xA;&#x9;File.Delete(fp1);&#xA;&#xA;if(File.Exists(fp2))&#xA;&#x9;File.Delete(fp2);&#xA;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="452,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="DirectoryInfo dir = new DirectoryInfo(downFileDir);&#xA;if(dir.Exists){&#xA;&#x9;var files = dir.GetFiles();&#xA;&#x9;foreach(var f in files){&#xA;&#x9;&#x9;f.Delete();&#xA;&#x9;}&#xA;}" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="452,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
       <ui:InvokeCode.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="fp1">[filePath_FaHuo]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="fp2">[filePath_KaiPiao]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="downFileDir">[downFileDir]</InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
     <ui:LogMessage DisplayName="日志消息" sap:VirtualizedContainerService.HintSize="452,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[str_SelectMonth]" />
-    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IEBrowser]" BrowserType="IE" DisplayName="附加浏览器" sap:VirtualizedContainerService.HintSize="452,5080.66666666667" sap2010:WorkflowViewState.IdRef="BrowserScope_2">
+    <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[IEBrowser]" BrowserType="IE" DisplayName="附加浏览器" sap:VirtualizedContainerService.HintSize="452,5144" sap2010:WorkflowViewState.IdRef="BrowserScope_2">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="序列" sap:VirtualizedContainerService.HintSize="418,4972.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="序列" sap:VirtualizedContainerService.HintSize="418,5036" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:NavigateTo Browser="[IEBrowser]" DisplayName="所有种类-提货数量-产品-分月-oem-简版-有效" sap:VirtualizedContainerService.HintSize="376,58.6666666666667" sap2010:WorkflowViewState.IdRef="NavigateTo_2" Url="http://sh-hq-amd.grand.gt:9704/analytics/saw.dll?Answers&amp;path=%2Fusers%2Ffandehong%2Ffandehong-%E5%B8%B8%E7%94%A8%E7%BB%9F%E8%AE%A1%2F%E6%89%80%E6%9C%89%E7%A7%8D%E7%B1%BB-%E6%8F%90%E8%B4%A7%E6%95%B0%E9%87%8F-%E4%BA%A7%E5%93%81-%E5%88%86%E6%9C%88-oem-%E7%AE%80%E7%89%88-%E6%9C%89%E6%95%88" />
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,4782" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,4783.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -446,7 +455,7 @@
                   </ui:Target>
                 </ui:Click.Target>
               </ui:Click>
-              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="发送热键" sap:VirtualizedContainerService.HintSize="334,116.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="a" KeyModifiers="None">
+              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="发送热键" sap:VirtualizedContainerService.HintSize="334,118" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="a" KeyModifiers="None">
                 <ui:SendHotkey.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="97e97165-2371-4f1b-b35d-2eb937f4f40b">
                     <ui:Target.TimeoutMS>
@@ -492,7 +501,7 @@
                   </ui:Target>
                 </ui:Click.Target>
               </ui:Click>
-              <ui:NavigateTo Browser="[IEBrowser]" DisplayName="OE-订单发运-产品-分月-oem-简版-有效" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="NavigateTo_3" Url="http://sh-hq-amd.grand.gt:9704/analytics/saw.dll?Answers&amp;path=%2Fusers%2Ffandehong%2Ffandehong-OE-%E5%8F%91%E8%B4%A7%2FOE-%E8%AE%A2%E5%8D%95%E5%8F%91%E8%BF%90-%E4%BA%A7%E5%93%81-%E5%88%86%E6%9C%88-oem-%E7%AE%80%E7%89%88-%E6%9C%89%E6%95%88" />
+              <ui:NavigateTo Browser="[IEBrowser]" DisplayName="OE-订单发运-产品-分月-oem-简版-有效" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="NavigateTo_3" Url="http://sh-hq-amd.grand.gt:9704/analytics/saw.dll?Answers&amp;path=%2Fusers%2Ffandehong%2Ffandehong-OE-%E5%8F%91%E8%B4%A7%2FOE-%E8%AE%A2%E5%8D%95%E5%8F%91%E8%BF%90-%E4%BA%A7%E5%93%81-%E5%88%86%E6%9C%88-oem-%E7%AE%80%E7%89%88-%E6%9C%89%E6%95%88" />
               <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="单击 'TABLE  _hightlighttable0'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_25" KeyModifiers="None" MouseButton="BTN_LEFT">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition Position="Center">
@@ -794,9 +803,11 @@
                 </ui:Click.Target>
               </ui:Click>
             </Sequence>
+            <ui:CloseTab Browser="[IEBrowser]" DisplayName="关闭选项卡" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="CloseTab_1" />
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
+    <ui:LogMessage DisplayName="日志消息" sap:VirtualizedContainerService.HintSize="452,93.3333333333333" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;BIWeb Process End&quot;]" />
   </Sequence>
 </Activity>

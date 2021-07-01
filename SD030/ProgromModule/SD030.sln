@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OperateInfoPath", "OperateI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPA.Core", "RPA.Core\RPA.Core.csproj", "{9B8126AC-C748-41B4-AF17-FFA2A3DB8E3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HugeExcel", "HugeExcel\HugeExcel.csproj", "{8054BDCF-5DA6-4A94-93D2-2A9D822902E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HugeExcel", "HugeExcel\HugeExcel.csproj", "{8054BDCF-5DA6-4A94-93D2-2A9D822902E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HugeExcel_Step2", "HugeExcel_Step2\HugeExcel_Step2.csproj", "{428BE8AF-47AF-47C2-9C6A-07FAE84765D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8054BDCF-5DA6-4A94-93D2-2A9D822902E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8054BDCF-5DA6-4A94-93D2-2A9D822902E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8054BDCF-5DA6-4A94-93D2-2A9D822902E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{428BE8AF-47AF-47C2-9C6A-07FAE84765D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{428BE8AF-47AF-47C2-9C6A-07FAE84765D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{428BE8AF-47AF-47C2-9C6A-07FAE84765D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{428BE8AF-47AF-47C2-9C6A-07FAE84765D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
