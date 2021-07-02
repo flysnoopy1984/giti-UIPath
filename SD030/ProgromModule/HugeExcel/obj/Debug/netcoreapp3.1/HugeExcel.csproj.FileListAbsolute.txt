@@ -90,3 +90,5 @@ C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Debug\netcoreapp3.1\runtimes
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Debug\netcoreapp3.1\HugeExcel.csproj.CoreCompileInputs.cache
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Debug\netcoreapp3.1\HugeExcel.genruntimeconfig.cache
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Debug\netcoreapp3.1\CsvHelper.dll
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Debug\netcoreapp3.1\HugeExcel.Properties.Resources.resources
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Debug\netcoreapp3.1\HugeExcel.csproj.GenerateResource.cache

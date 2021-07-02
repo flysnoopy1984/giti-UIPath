@@ -57,7 +57,7 @@ namespace HugeExcel
             var startRow = sheet.Dimension.End.Row;
             int dtRow = 0;
 
-            for (int r = startRow + 1; r < startRow + dt.Rows.Count; r++)
+            for (int r = startRow + 1; r <=startRow + dt.Rows.Count; r++)
             {
 
                 for (int c = 0; c < dt.Columns.Count; c++)

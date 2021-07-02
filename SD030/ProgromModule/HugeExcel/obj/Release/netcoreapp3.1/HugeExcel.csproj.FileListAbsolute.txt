@@ -90,3 +90,5 @@ C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Release\netcoreapp3.1\HugeEx
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Release\netcoreapp3.1\HugeExcel.dll
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Release\netcoreapp3.1\HugeExcel.pdb
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Release\netcoreapp3.1\HugeExcel.genruntimeconfig.cache
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Release\netcoreapp3.1\HugeExcel.Properties.Resources.resources
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Release\netcoreapp3.1\HugeExcel.csproj.GenerateResource.cache
