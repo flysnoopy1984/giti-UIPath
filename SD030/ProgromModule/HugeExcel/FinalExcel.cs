@@ -80,9 +80,13 @@ namespace HugeExcel
                     ExcelRange cNew = sheet.Cells[r, nc];
                     cNew.StyleID = cOld.StyleID;
                     cNew.FormulaR1C1 = cOld.FormulaR1C1;
+                    cNew.Calculate();
+
+
                 }
                 dtRow++;
             }
+            
         }
 
         //图-半钢胎 //图-全钢胎

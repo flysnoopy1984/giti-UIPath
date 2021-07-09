@@ -143,34 +143,34 @@ namespace HugeExcel_Step2
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 using (ExcelPackage package = new ExcelPackage(new FileInfo(_FilePath)))
                 {
-                    var sheet = package.Workbook.Worksheets["A-全钢胎"];
-                    int endRow = sheet.Dimension.Rows - 1;
-                    int startRow = endRow;
-                    int col = 19;
-                    var val = sheet.Cells[startRow, col].Value as string;
-                    while (string.IsNullOrEmpty(val))
-                    {
-                        val = sheet.Cells[--startRow, col].Value as string;
-                    }
-                    var copycol = 14;
-                    var copyRow = startRow;
-                    startRow = copyRow + 1;
-                    while (startRow <= endRow)
-                    {
-                        for (int c = copycol; c <= sheet.Dimension.Columns; c++)
-                        {
-                            sheet.Cells[startRow, c].FormulaR1C1 = sheet.Cells[copyRow, c].FormulaR1C1;
-                            //  sheet.Cells[startRow, c].Calculate();
+                    //var sheet = package.Workbook.Worksheets["A-全钢胎"];
+                    //int endRow = sheet.Dimension.Rows - 1;
+                    //int startRow = endRow;
+                    //int col = 19;
+                    //var val = sheet.Cells[startRow, col].Value as string;
+                    //while (string.IsNullOrEmpty(val))
+                    //{
+                    //    val = sheet.Cells[--startRow, col].Value as string;
+                    //}
+                    //var copycol = 14;
+                    //var copyRow = startRow;
+                    //startRow = copyRow + 1;
+                    //while (startRow <= endRow)
+                    //{
+                    //    for (int c = copycol; c <= sheet.Dimension.Columns; c++)
+                    //    {
+                    //        sheet.Cells[startRow, c].FormulaR1C1 = sheet.Cells[copyRow, c].FormulaR1C1;
+                    //        //  sheet.Cells[startRow, c].Calculate();
 
-                            CopyDrawLine(sheet, startRow, c, copyRow, startRow == endRow);
+                    //        CopyDrawLine(sheet, startRow, c, copyRow, startRow == endRow);
 
-                        }
-                        startRow++;
-                    }
+                    //    }
+                    //    startRow++;
+                    //}
 
-                    //设置月份参数，重新计算
-                    sheet.Cells[1, 201].Value = DateTime.Now.AddMonths(-1).Month;
-                    //   sheet.Cells.Calculate();
+                    ////设置月份参数，重新计算
+                    //sheet.Cells[1, 201].Value = DateTime.Now.AddMonths(-1).Month;
+                    ////   sheet.Cells.Calculate();
 
                     package.Save();
                 }
