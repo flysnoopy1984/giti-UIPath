@@ -86,3 +86,4 @@ C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\NLog.Web.AspNetCore.dll
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\obj\Release\netcoreapp3.1\OperateInfoPath.csproj.CoreCompileInputs.cache
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\obj\Release\netcoreapp3.1\OperateInfoPath.genruntimeconfig.cache
+C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\CsvHelper.dll

@@ -7,6 +7,7 @@ C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\publish\OperateInfoPath.runtimeconfig.json
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\publish\OperateInfoPath.pdb
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\publish\BouncyCastle.Crypto.dll
+C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\publish\CsvHelper.dll
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\publish\EPPlus.dll
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\publish\Google.Protobuf.dll
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Release\netcoreapp3.1\publish\K4os.Compression.LZ4.dll

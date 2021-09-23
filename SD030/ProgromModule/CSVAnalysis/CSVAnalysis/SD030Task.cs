@@ -75,9 +75,7 @@ namespace CSVAnalysis
             else
             {
                 throw new Exception("没有找到合适的文件");
-            }
-
-          
+            } 
         }
 
         private DateTime getLastDayOfMonth(DateTime datetime)

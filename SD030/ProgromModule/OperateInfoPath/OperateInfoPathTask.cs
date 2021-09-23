@@ -180,8 +180,10 @@ namespace OperateInfoPath
                 addrObj.Province = "";
                 addrObj.City = "";
                 addrObj.AddressNum = "1";
-                addrObj.Addressline = getNodeInnerText("//my:收货地址");
-
+                /*
+                 * addrObj.Addressline = getNodeInnerText("//my:收货地址"); 修改为my:ERP发运地址节点 2021-7-14
+                 */
+                addrObj.Addressline = getNodeInnerText("//my:ERP发运地址"); 
                 obj.AddressList.Add(addrObj);
 
                 obj.AccountNum = getNodeInnerText("//my:ERP编码");
