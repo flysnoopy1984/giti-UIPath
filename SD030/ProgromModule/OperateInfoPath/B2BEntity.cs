@@ -49,7 +49,6 @@ namespace OperateInfoPath
         {
             this.Id = obj.crmId;
             this.Kind = obj.crmKind;
-      
         }
         public string Id { get; set; }
         public string Kind { get; set; }

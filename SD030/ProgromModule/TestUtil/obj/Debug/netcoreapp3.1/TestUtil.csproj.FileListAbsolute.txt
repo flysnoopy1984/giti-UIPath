@@ -1,0 +1,13 @@
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Debug\netcoreapp3.1\TestUtil.exe
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Debug\netcoreapp3.1\TestUtil.deps.json
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Debug\netcoreapp3.1\TestUtil.runtimeconfig.json
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Debug\netcoreapp3.1\TestUtil.runtimeconfig.dev.json
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Debug\netcoreapp3.1\TestUtil.dll
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Debug\netcoreapp3.1\TestUtil.pdb
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\obj\Debug\netcoreapp3.1\TestUtil.csprojAssemblyReference.cache
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\obj\Debug\netcoreapp3.1\TestUtil.AssemblyInfoInputs.cache
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\obj\Debug\netcoreapp3.1\TestUtil.AssemblyInfo.cs
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\obj\Debug\netcoreapp3.1\TestUtil.csproj.CoreCompileInputs.cache
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\obj\Debug\netcoreapp3.1\TestUtil.dll
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\obj\Debug\netcoreapp3.1\TestUtil.pdb
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\obj\Debug\netcoreapp3.1\TestUtil.genruntimeconfig.cache

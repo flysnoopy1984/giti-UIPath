@@ -46,7 +46,7 @@ namespace RPA.Core
         //    FileInfo fi = new FileInfo(@"C:\Project\UIPath\ImportUserToWeb_Inner\Do\HistoryFiles\Inner\B2B客户新建账号--07 03 _1.xlsx");
          //   string ee = fi.Extension;
         }
-        public  void InitSystem(Type type) 
+        public  void InitSystem(Type type,bool needDB=true) 
         {
            
             _CurrentDirectory = Path.GetDirectoryName(type.Assembly.Location);
@@ -55,12 +55,9 @@ namespace RPA.Core
                   .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                   .Build();
 
-            SqlSugarSetup();
-         //   var serviceCollection = new ServiceCollection();
-         //  serviceCollection.AddSqlSugarSetup(_configuration);
-         //       ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
-
-            //    _Db = serviceProvider.GetService<SqlSugarClient>();
+            if(needDB)
+                SqlSugarSetup();
+        
         }
 
         private void SqlSugarSetup()

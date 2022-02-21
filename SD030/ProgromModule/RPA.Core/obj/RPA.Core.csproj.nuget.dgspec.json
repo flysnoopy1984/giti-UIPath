@@ -47,6 +47,10 @@
               "target": "Package",
               "version": "[19.0.0, )"
             },
+            "DotNetZip": {
+              "target": "Package",
+              "version": "[1.16.0, )"
+            },
             "EPPlus": {
               "target": "Package",
               "version": "[5.5.1, )"
@@ -92,6 +96,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win10-x64": {
+          "#import": []
         }
       }
     }

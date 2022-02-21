@@ -94,7 +94,10 @@ namespace HugeExcel
         {
             int FirstMonthRow = 7;
             int curMonth = DateTime.Now.Month-1;
+            if (DateTime.Now.Month == 1)
+                curMonth = 12;
             int curMonthRow = FirstMonthRow + curMonth;
+       //    
             int curCol = 22;
             int colorStartCol = 14;
             int c=0;

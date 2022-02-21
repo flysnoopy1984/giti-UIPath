@@ -53,22 +53,7 @@ namespace HugeExcel
                                 }
                             }
 
-                            //var testDataSheet = packageCustomer.Workbook.Worksheets["TestData"];
-                            //sheetFinal = packageFinal.Workbook.Worksheets["表-数量"];
-                            //targetRow = sheetFinal.Dimension.End.Row;
-                            //if (testDataSheet != null)
-                            //{
-                            //    rowCount = testDataSheet.Dimension.End.Row;
-                            //    columnCount = testDataSheet.Dimension.End.Column;
-                            //    for (int r = 1; r <= rowCount; r++)
-                            //    {
-                            //        targetRow++;
-                            //        for (int c = 1; c <= columnCount; c++)
-                            //        {
-                            //            sheetFinal.Cells[targetRow, c].Value = testDataSheet.Cells[r, c].Value;
-                            //        }
-                            //    }
-                            //}
+                    
                         }
                     }
                     packageFinal.Save();

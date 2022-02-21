@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "5vnq9ZM1kRxGol+xhja0VfGXDewcxpwzVW/lR5cgPYh5Bspq9Im5zVJtF166Zt9W23l6QsKr37AjETtFTmvA/A==",
+  "success": true,
+  "projectFilePath": "C:\\Project\\UIPath\\SD030\\ProgromModule\\TestUtil\\TestUtil.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Giti\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\3.1.14\\microsoft.netcore.app.runtime.win-x64.3.1.14.nupkg.sha512",
+    "C:\\Users\\Giti\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\3.1.14\\microsoft.windowsdesktop.app.runtime.win-x64.3.1.14.nupkg.sha512",
+    "C:\\Users\\Giti\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\3.1.14\\microsoft.aspnetcore.app.runtime.win-x64.3.1.14.nupkg.sha512"
+  ],
+  "logs": []
+}

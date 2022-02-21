@@ -1,0 +1,16 @@
+1）客户端
+机器名：SH-HQ-RPA-CL   IP:10.240.20.172
+Administrator密码：Giti@2021
+ 
+2）	OC端
+SH-HQ-RPAAPP   UIPATH应用服务器     10.240.20.171
+ 
+web后台登录账号是：admin
+ 
+密码是Rpa@2021
+https://sh-hq-rpaapp.grand.gt/identity/
+
+3)  数据库端
+SH-HQ-RPADB    UIPATH数据库服务器  10.240.40.40
+
+SQL server： sa密码：Rpa@2021

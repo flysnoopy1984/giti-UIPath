@@ -65,9 +65,10 @@ namespace HugeExcel
             bool result = false;
             try
             {
+                /* 可以使用 但暂时不用*/
                 NewCustomerExcel newCustomerExcel = new NewCustomerExcel();
                 newCustomerExcel.Run();
-               //  return;
+     
 
                 KaiPiaoExcel kaiPiaoExcel = new KaiPiaoExcel();
                 result = kaiPiaoExcel.Run();
