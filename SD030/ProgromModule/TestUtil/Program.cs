@@ -1,26 +1,35 @@
-﻿using System;
+﻿using RPA.Core;
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace TestUtil
 {
     class Program
     {
+        public static RPACore _RPACore = RPACore.getInstance();
         static void Main(string[] args)
         {
-            DateTime cur = DateTime.Now;
-            string d = cur.AddDays(1 - cur.Day).ToString("yyyy-MM-dd");
+            //     _RPACore.InitSystem(typeof(Program), false);
 
-             cur = DateTime.Now;
-            string e = cur.AddDays(1 - cur.Day).AddMonths(1).AddDays(-1).ToString("yyyy-MM-dd");
-            //   string d =  DateTime.Now.ToString("yyyy-MM-01");
-            System.IO.DirectoryInfo di = new DirectoryInfo("c:\\test");
-            if (di.Exists)
-                di.Delete(true);
-            di.Create();
+            //     List<string> sentList = new List<string>();
+            //     sentList.Add("song.fuwei@giti.com");
 
-            Console.WriteLine(d);
-            Console.WriteLine(e);
-            Console.WriteLine("Hello World!");
+            ////     var a = Convert.ToString(_RPACore.Configuration["Email:fromAddr"]);
+            //    // bool is126 = Convert.ToString(_RPACore.Configuration["Email:fromAddr"]).Split("@")[1] == "126.com";
+
+            //     RPA.Core.RPAEmail.Sent_126(sentList,"aa","bb");
+            //     Console.WriteLine("Hello World!");
+            TestFile();
+        }
+
+        static void TestFile()
+        {
+            FileInfo fi = new FileInfo(@"c:\1.xls");
+            if (fi.Exists)
+            {
+
+            }
         }
     }
 }

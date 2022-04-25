@@ -113,3 +113,4 @@ C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcorea
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.csproj.CoreCompileInputs.cache
 C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\obj\Debug\netcoreapp3.1\CSVAnalysis.genruntimeconfig.cache
+C:\Project\UIPath\SD030\ProgromModule\CSVAnalysis\CSVAnalysis\bin\Debug\netcoreapp3.1\DotNetZip.dll

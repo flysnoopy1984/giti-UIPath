@@ -42,7 +42,10 @@ namespace FinSplitSalesCustomer
             //SplitExcel splitExcel = new SplitExcel();
             //splitExcel.run();
         }
+        static void TestEmail()
+        {
 
+        }
         static void TestZip()
         {
             IConfiguration cfg = Program._RPACore.Configuration;

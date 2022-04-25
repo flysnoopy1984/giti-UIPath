@@ -13,11 +13,11 @@ namespace CSVAnalysis
         {
             try
             {
-                _RPACore.InitSystem(typeof(Program));
+                _RPACore.InitSystem(typeof(Program),false);
       //          if (Convert.ToBoolean(_RPACore.Configuration["setting:KillIEprocess"]))
-                BaseTask.KillProcess("iexplore");
+            //    BaseTask.KillProcess("iexplore");
 
-                Console.WriteLine($"start Root :{_RPACore.CurrentDirectory}");
+             //   Console.WriteLine($"start Root :{_RPACore.CurrentDirectory}");
                 SD030Task task = new SD030Task();
                 task.run();
                 if (Convert.ToBoolean(_RPACore.Configuration["setting:KillIEprocess"]))

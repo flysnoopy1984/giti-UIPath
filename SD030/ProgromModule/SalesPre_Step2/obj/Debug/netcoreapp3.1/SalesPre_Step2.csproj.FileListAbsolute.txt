@@ -81,7 +81,6 @@ C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Debug\netcoreapp3.1\run
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Debug\netcoreapp3.1\RPA.Core.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Debug\netcoreapp3.1\RPA.Core.pdb
-C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Debug\netcoreapp3.1\SalesPre_Step2.csprojAssemblyReference.cache
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Debug\netcoreapp3.1\SalesPre_Step2.AssemblyInfoInputs.cache
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Debug\netcoreapp3.1\SalesPre_Step2.AssemblyInfo.cs
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Debug\netcoreapp3.1\SalesPre_Step2.csproj.CoreCompileInputs.cache
@@ -89,3 +88,4 @@ C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Debug\netcoreapp3.1\Sal
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Debug\netcoreapp3.1\SalesPre_Step2.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Debug\netcoreapp3.1\SalesPre_Step2.pdb
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Debug\netcoreapp3.1\SalesPre_Step2.genruntimeconfig.cache
+C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Debug\netcoreapp3.1\DotNetZip.dll

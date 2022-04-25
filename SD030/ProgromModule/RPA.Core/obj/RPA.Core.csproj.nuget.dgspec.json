@@ -97,11 +97,6 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
-      },
-      "runtimes": {
-        "win10-x64": {
-          "#import": []
-        }
       }
     }
   }

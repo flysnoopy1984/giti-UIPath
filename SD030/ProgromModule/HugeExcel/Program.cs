@@ -66,8 +66,8 @@ namespace HugeExcel
             try
             {
                 /* 可以使用 但暂时不用*/
-                NewCustomerExcel newCustomerExcel = new NewCustomerExcel();
-                newCustomerExcel.Run();
+                //NewCustomerExcel newCustomerExcel = new NewCustomerExcel();
+                //newCustomerExcel.Run();
      
 
                 KaiPiaoExcel kaiPiaoExcel = new KaiPiaoExcel();
@@ -78,16 +78,14 @@ namespace HugeExcel
 
                 if (result)
                 {
-
                     DataRow[] rows = new DataRow[faYunExcel.DataTable.Rows.Count + kaiPiaoExcel.DataTable.Rows.Count];
                     faYunExcel.DataTable.Rows.CopyTo(rows, 0);
                     kaiPiaoExcel.DataTable.Rows.CopyTo(rows, faYunExcel.DataTable.Rows.Count);
 
                     CombineExcel combineExcel = new CombineExcel();
                     int colLen = kaiPiaoExcel.DataTable.Columns.Count;
-                    combineExcel.Run(rows, colLen);
-                    var dt = combineExcel.Run_GetTableData(rows, colLen);
-
+                    var dt = combineExcel.Run_2022(rows, colLen);
+                    //var dt = combineExcel.Run_GetTableData(rows, colLen);
 
                     _finalExcel = new FinalExcel();
                     _finalExcel.Run(dt);

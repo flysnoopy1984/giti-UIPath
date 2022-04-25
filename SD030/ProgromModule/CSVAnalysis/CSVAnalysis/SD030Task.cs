@@ -70,7 +70,9 @@ namespace CSVAnalysis
 
                 Console.WriteLine("todoExclePath:" + _todoExcel.FullName);
                 Console.WriteLine("historyFileFullName:" + historyFileFullName);
+                /*20220404 修改为Copy*/
                 File.Move(_todoExcel.FullName, historyFileFullName, true);
+                //File.Copy(_todoExcel.FullName, historyFileFullName, true);
             }
             else
             {

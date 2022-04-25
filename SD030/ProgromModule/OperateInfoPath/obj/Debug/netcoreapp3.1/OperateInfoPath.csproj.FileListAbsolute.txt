@@ -87,3 +87,4 @@ C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Debug\netcoreapp3.1\NL
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\obj\Debug\netcoreapp3.1\OperateInfoPath.csproj.CoreCompileInputs.cache
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\obj\Debug\netcoreapp3.1\OperateInfoPath.genruntimeconfig.cache
 C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Debug\netcoreapp3.1\CsvHelper.dll
+C:\Project\UIPath\SD030\ProgromModule\OperateInfoPath\bin\Debug\netcoreapp3.1\DotNetZip.dll

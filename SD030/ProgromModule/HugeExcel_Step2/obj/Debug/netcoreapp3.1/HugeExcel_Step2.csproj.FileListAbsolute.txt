@@ -90,3 +90,4 @@ C:\Project\UIPath\SD030\ProgromModule\HugeExcel_Step2\obj\Debug\netcoreapp3.1\Hu
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel_Step2\obj\Debug\netcoreapp3.1\HugeExcel_Step2.pdb
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel_Step2\obj\Debug\netcoreapp3.1\HugeExcel_Step2.genruntimeconfig.cache
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel_Step2\bin\Debug\netcoreapp3.1\NLog.config
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel_Step2\bin\Debug\netcoreapp3.1\DotNetZip.dll

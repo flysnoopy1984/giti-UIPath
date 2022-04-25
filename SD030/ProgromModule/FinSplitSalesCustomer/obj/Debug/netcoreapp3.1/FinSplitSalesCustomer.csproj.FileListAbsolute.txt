@@ -81,7 +81,6 @@ C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Debug\netcoreapp
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Debug\netcoreapp3.1\RPA.Core.dll
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Debug\netcoreapp3.1\RPA.Core.pdb
-C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\obj\Debug\netcoreapp3.1\FinSplitSalesCustomer.csprojAssemblyReference.cache
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\obj\Debug\netcoreapp3.1\FinSplitSalesCustomer.AssemblyInfoInputs.cache
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\obj\Debug\netcoreapp3.1\FinSplitSalesCustomer.AssemblyInfo.cs
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\obj\Debug\netcoreapp3.1\FinSplitSalesCustomer.csproj.CoreCompileInputs.cache

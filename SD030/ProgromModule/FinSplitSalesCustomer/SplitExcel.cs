@@ -4,6 +4,7 @@ using RPA.Core;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace FinSplitSalesCustomer
@@ -189,26 +190,43 @@ namespace FinSplitSalesCustomer
         {
             IConfiguration cfg = Program._RPACore.Configuration;
             bool isTest = Convert.ToBoolean(cfg["IsTest"]);
-            List<string> sentList = new List<string>();
-            List<string> attachList = new List<string>();
+            bool is126 = Convert.ToString(cfg["Email:fromAddr"]).Split("@")[1] == "126.com";
+           
             if (isTest)
             {
-                string path = RPAZip.ZipDir(_SentDir);
+                //List<string> sentList = new List<string>();
+                //List<string> attachList = new List<string>();
+                //List<string> bccList = new List<string>();
+                //string path = RPAZip.ZipDir(_SentDir);
               
-                sentList.Add("song.fuwei@giti.com");
-                attachList.Add(path);
-
-                RPAEmail.Sent(sentList, Convert.ToString(cfg["Email:title"]), Convert.ToString(cfg["Email:body"]), null, null, attachList);
+                //sentList.Add("song.fuwei@giti.com");
+                //attachList.Add(path);
+                //if(is126)
+                //    RPAEmail.Sent_126(sentList, Convert.ToString(cfg["Email:title"]), Convert.ToString(cfg["Email:body"]), null, null, attachList);
+                //else
+                //    RPAEmail.Sent(sentList, Convert.ToString(cfg["Email:title"]), Convert.ToString(cfg["Email:body"]), null, null, attachList);
 
             }
             else
             {
                 foreach (var es in emailSalesList)
                 {
+                    List<string> sentList = new List<string>();
+                    List<string> attachList = new List<string>();
+                    List<string> bccList = new List<string>();
+
+                    object bcc = cfg["Email:bcc"];
+                    if (bcc!=null)
+                    {
+                        string bccStr = Convert.ToString(bcc);
+                        if(!string.IsNullOrEmpty(bccStr))
+                            bccList =  bccStr.Split(";").ToList();
+                    }
+
                     sentList.Add(es.SalesMail);
                     attachList.Add(es.AttachFilePath);
-
-                    RPAEmail.Sent(sentList, Convert.ToString(cfg["Email:title"]), Convert.ToString(cfg["Email:body"]), null, null, attachList);
+                    Console.WriteLine(es.SalesMail);
+                  //  RPAEmail.Sent(sentList, Convert.ToString(cfg["Email:title"]), Convert.ToString(cfg["Email:body"]), null, bccList, attachList);
                 }
             }
            

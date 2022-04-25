@@ -147,11 +147,11 @@ namespace HugeExcel_Step2
                     int endRow = sheet.Dimension.Rows - 1;
                     int startRow = endRow;
                     int col = 19;
-                    var val = sheet.Cells[startRow, col].Value as string;
-                    while (string.IsNullOrEmpty(val))
-                    {
-                        val = sheet.Cells[--startRow, col].Value as string;
-                    }
+                    //var val = sheet.Cells[startRow, col].Value as string;
+                    //while (string.IsNullOrEmpty(val))
+                    //{
+                    //    val = sheet.Cells[--startRow, col].Value as string;
+                    //}
                     var copycol = 14;
                     var copyRow = startRow;
                     startRow = copyRow + 1;
