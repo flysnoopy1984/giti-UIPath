@@ -273,7 +273,6 @@ C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x
 C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\System.Configuration.ConfigurationManager.dll
 C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\System.Data.SqlClient.dll
 C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\System.Drawing.Common.dll
-C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\System.Formats.Asn1.dll
 C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\System.Security.Cryptography.Pkcs.dll
 C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\System.Security.Cryptography.ProtectedData.dll
 C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\System.Security.Permissions.dll
@@ -283,3 +282,5 @@ C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x
 C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\e_sqlite3.dll
 C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\RPA.Core.dll
 C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\RPA.Core.pdb
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\EPPlus.Interfaces.dll
+C:\Project\UIPath\SD030\ProgromModule\TestUtil\bin\Release\netcoreapp3.1\win10-x64\EPPlus.System.Drawing.dll

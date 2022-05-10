@@ -5,6 +5,8 @@ C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\CsvHelper.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\DotNetZip.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\EPPlus.dll
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\EPPlus.Interfaces.dll
+C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\EPPlus.System.Drawing.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\Google.Protobuf.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\K4os.Compression.LZ4.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\K4os.Compression.LZ4.Streams.dll
@@ -38,13 +40,9 @@ C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\Kdbndp.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\Renci.SshNet.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\SshNet.Security.Cryptography.dll
-C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\System.ComponentModel.Annotations.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\System.Configuration.ConfigurationManager.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\System.Data.SqlClient.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\System.Drawing.Common.dll
-C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\System.Formats.Asn1.dll
-C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\System.Runtime.CompilerServices.Unsafe.dll
-C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.Cng.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.Pkcs.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.ProtectedData.dll
 C:\Project\UIPath\SD030\ProgromModule\RPA.Core\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Permissions.dll

@@ -19,7 +19,7 @@ namespace FinSplitSalesCustomer
                 _FileMonitor.StartMonitor();
 
                 var runApp = Convert.ToString(_RPACore.Configuration["runApp"]).ToLower();
-              
+                //NLogUtil.cc_ErrorTxt($"not sent");
 
                 SplitExcel splitExcel = new SplitExcel(runApp);
                 if (runApp == "regunship")

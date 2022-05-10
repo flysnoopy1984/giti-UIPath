@@ -16,6 +16,7 @@ C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\w
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Collections.NonGeneric.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Collections.Specialized.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Collections.dll
+C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.ComponentModel.Annotations.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.ComponentModel.DataAnnotations.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.ComponentModel.EventBasedAsync.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.ComponentModel.Primitives.dll
@@ -99,6 +100,7 @@ C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\w
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Resources.Reader.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Resources.ResourceManager.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Resources.Writer.dll
+C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Runtime.CompilerServices.Unsafe.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Runtime.CompilerServices.VisualC.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Runtime.Extensions.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Runtime.Handles.dll
@@ -119,6 +121,7 @@ C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\w
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.AccessControl.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Claims.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.Algorithms.dll
+C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.Cng.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.Csp.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.Encoding.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.OpenSsl.dll
@@ -130,6 +133,7 @@ C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\w
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.ServiceModel.Web.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.ServiceProcess.dll
+C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Text.Encoding.CodePages.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Text.Encoding.Extensions.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Text.Encoding.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Text.Encodings.Web.dll
@@ -223,6 +227,8 @@ C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\w
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\CsvHelper.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\DotNetZip.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\EPPlus.dll
+C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\EPPlus.Interfaces.dll
+C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\EPPlus.System.Drawing.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\Google.Protobuf.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\K4os.Compression.LZ4.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\K4os.Compression.LZ4.Streams.dll
@@ -256,17 +262,12 @@ C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\w
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\Kdbndp.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\Renci.SshNet.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\SshNet.Security.Cryptography.dll
-C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.ComponentModel.Annotations.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Configuration.ConfigurationManager.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Data.SqlClient.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Drawing.Common.dll
-C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Formats.Asn1.dll
-C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Runtime.CompilerServices.Unsafe.dll
-C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.Cng.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.Pkcs.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Cryptography.ProtectedData.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Security.Permissions.dll
-C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Text.Encoding.CodePages.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Text.Json.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Windows.Extensions.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\publish\System.Xml.XPath.XmlDocument.dll

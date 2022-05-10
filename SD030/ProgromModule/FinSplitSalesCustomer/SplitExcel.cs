@@ -226,7 +226,16 @@ namespace FinSplitSalesCustomer
                     sentList.Add(es.SalesMail);
                     attachList.Add(es.AttachFilePath);
                     Console.WriteLine(es.SalesMail);
-                  //  RPAEmail.Sent(sentList, Convert.ToString(cfg["Email:title"]), Convert.ToString(cfg["Email:body"]), null, bccList, attachList);
+                    try
+                    {
+                    
+                        RPAEmail.Sent(sentList, Convert.ToString(cfg["Email:title"]), Convert.ToString(cfg["Email:body"]), null, bccList, attachList);
+                    }
+                    catch(Exception ex)
+                    {
+                        NLogUtil.cc_ErrorTxt($"{es.SalesMail} not sent："+ex.Message);
+                    }
+                   
                 }
             }
            

@@ -1,9 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="C:\Users\Giti\.nuget\packages\nlog.config\4.7.9\contentFiles\any\any\NLog.config" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RPA.Core\RPA.Core.csproj" />
@@ -13,14 +17,17 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="History\" />
+    <Folder Include="History\20220428\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EPPlus" Version="5.5.1" />
+    <PackageReference Include="EPPlus" Version="6.0.3" />
   </ItemGroup>
 
 </Project>

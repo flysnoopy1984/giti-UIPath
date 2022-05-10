@@ -47,7 +47,6 @@ C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Release\netcoreapp3.1\win10-
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Release\netcoreapp3.1\win10-x64\System.Configuration.ConfigurationManager.dll
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Release\netcoreapp3.1\win10-x64\System.Data.SqlClient.dll
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Release\netcoreapp3.1\win10-x64\System.Drawing.Common.dll
-C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Release\netcoreapp3.1\win10-x64\System.Formats.Asn1.dll
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Release\netcoreapp3.1\win10-x64\System.Runtime.CompilerServices.Unsafe.dll
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Release\netcoreapp3.1\win10-x64\System.Security.Cryptography.Cng.dll
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Release\netcoreapp3.1\win10-x64\System.Security.Cryptography.Pkcs.dll
@@ -286,3 +285,5 @@ C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Release\netcoreapp3.1\win10-
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Release\netcoreapp3.1\win10-x64\HugeExcel.pdb
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Release\netcoreapp3.1\win10-x64\HugeExcel.genruntimeconfig.cache
 C:\Project\UIPath\SD030\ProgromModule\HugeExcel\obj\Release\netcoreapp3.1\win10-x64\HugeExcel.csprojAssemblyReference.cache
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Release\netcoreapp3.1\win10-x64\EPPlus.Interfaces.dll
+C:\Project\UIPath\SD030\ProgromModule\HugeExcel\bin\Release\netcoreapp3.1\win10-x64\EPPlus.System.Drawing.dll

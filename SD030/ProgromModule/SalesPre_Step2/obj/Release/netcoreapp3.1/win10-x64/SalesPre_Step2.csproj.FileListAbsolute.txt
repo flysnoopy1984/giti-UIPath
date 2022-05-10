@@ -46,7 +46,6 @@ C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\w
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\System.Configuration.ConfigurationManager.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\System.Data.SqlClient.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\System.Drawing.Common.dll
-C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\System.Formats.Asn1.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\System.Runtime.CompilerServices.Unsafe.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\System.Security.Cryptography.Cng.dll
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\System.Security.Cryptography.Pkcs.dll
@@ -283,3 +282,5 @@ C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Release\netcoreapp3.1\w
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Release\netcoreapp3.1\win10-x64\SalesPre_Step2.pdb
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Release\netcoreapp3.1\win10-x64\SalesPre_Step2.genruntimeconfig.cache
 C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\obj\Release\netcoreapp3.1\win10-x64\SalesPre_Step2.csprojAssemblyReference.cache
+C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\EPPlus.Interfaces.dll
+C:\Project\UIPath\SD030\ProgromModule\SalesPre_Step2\bin\Release\netcoreapp3.1\win10-x64\EPPlus.System.Drawing.dll

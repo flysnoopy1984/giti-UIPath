@@ -46,7 +46,6 @@ C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcorea
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcoreapp3.1\win10-x64\System.Configuration.ConfigurationManager.dll
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcoreapp3.1\win10-x64\System.Data.SqlClient.dll
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcoreapp3.1\win10-x64\System.Drawing.Common.dll
-C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcoreapp3.1\win10-x64\System.Formats.Asn1.dll
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcoreapp3.1\win10-x64\System.Runtime.CompilerServices.Unsafe.dll
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcoreapp3.1\win10-x64\System.Security.Cryptography.Cng.dll
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcoreapp3.1\win10-x64\System.Security.Cryptography.Pkcs.dll
@@ -283,3 +282,6 @@ C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\obj\Release\netcorea
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\obj\Release\netcoreapp3.1\win10-x64\FinSplitSalesCustomer.dll
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\obj\Release\netcoreapp3.1\win10-x64\FinSplitSalesCustomer.pdb
 C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\obj\Release\netcoreapp3.1\win10-x64\FinSplitSalesCustomer.genruntimeconfig.cache
+C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcoreapp3.1\win10-x64\NLog.config
+C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcoreapp3.1\win10-x64\EPPlus.Interfaces.dll
+C:\Project\UIPath\SD030\ProgromModule\FinSplitSalesCustomer\bin\Release\netcoreapp3.1\win10-x64\EPPlus.System.Drawing.dll

@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesPre_Step2", "SalesPre_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinSplitSalesCustomer", "FinSplitSalesCustomer\FinSplitSalesCustomer.csproj", "{D2816E58-152A-430A-8BA3-76C46B22F6D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUtil", "TestUtil\TestUtil.csproj", "{E709E563-7919-4290-87E8-7105AB3D574D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUtil", "TestUtil\TestUtil.csproj", "{E709E563-7919-4290-87E8-7105AB3D574D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
